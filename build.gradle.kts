@@ -16,7 +16,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("com.github.mireu9275:PRCMoney:v1.0.3")
-    compileOnly("com.github.mireu9275:PRCShop:v1.0.9")
+    compileOnly("com.github.mireu9275:PRCShop:v1.0.10")
     compileOnly(kotlin("stdlib"))
     compileOnly(kotlin("reflect"))
 }
