@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "kr.eme.prcMission"
-version = "1.0.8"
+version = "1.0.9"
 
 repositories {
     mavenLocal()
@@ -31,7 +31,7 @@ java {
 
 tasks.jar {
     archiveFileName = "${project.name}-${project.version}.jar"
-    destinationDirectory = file("C:\\Users\\Home\\Desktop\\Develop\\minecraft\\Bukkit\\paper 1.21.4 (Semicolon Primary Colony)\\plugins") // Computer
+    destinationDirectory = file("\\\\172.30.1.38\\공유폴더\\paper 1.21.4\\plugins")
     manifest {
         attributes["Main-Class" ] = "kr.eme.prcMission.PRCMission"
     }

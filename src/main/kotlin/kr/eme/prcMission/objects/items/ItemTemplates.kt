@@ -2,20 +2,22 @@ package kr.eme.prcMission.objects.items
 
 
 
+import kr.eme.prcMission.main
 import kr.eme.prcShop.api.PRCItems
-import kr.eme.prcMission.objects.models.ItemReward as IR
-import org.bukkit.Material as M
 import org.bukkit.NamespacedKey
 import org.bukkit.attribute.Attribute
 import org.bukkit.attribute.AttributeModifier
 import org.bukkit.inventory.EquipmentSlotGroup
-import kr.eme.prcMission.main
+import kr.eme.prcMission.objects.models.ItemReward as IR
+import org.bukkit.Material as M
 
 object ItemTemplates {
     // material
     // HIDE_ATTRIBUTES applied by default in ItemReward
 
     val ironOre = IR(PRCItems.IRON)
+
+    val test = PRCItems.COPPER_INGOT
 
     val aluminumIngot = IR(PRCItems.ALUMINUM_INGOT)
     val ironIngot = IR(PRCItems.IRON_INGOT)
@@ -29,6 +31,7 @@ object ItemTemplates {
 
     // module
     val furnaceModule = IR(PRCItems.FURNACE_MODULE)
+    val coffeeModule = IR(PRCItems.COFFEE_MACHINE_MODULE)
 
     // recipe
     val ironIngotRecipe = IR(PRCItems.RECIPE_IRON_INGOT)
@@ -39,10 +42,6 @@ object ItemTemplates {
     val nutrientCapsule = IR(PRCItems.NUTRITION_CAPSULE)
     val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
     val weedkillerCapsule = IR(PRCItems.HERBICIDE_CAPSULE)
-
-    val knife = IR(M.WOODEN_SHOVEL,1,"§f나이프","",10)
-    val coffee = IR(M.BOWL,1,"§f커피","",2)
-
     val transportationItem = IR(
         material = M.IRON_BOOTS,
         amount = 1,
@@ -57,6 +56,4 @@ object ItemTemplates {
             addAttributeModifier(Attribute.STEP_HEIGHT, stepModifier)
         }
     )
-    val longSword = IR(M.WOODEN_SHOVEL, 1, "§f장도","",11)
-    val drill = IR(M.WOODEN_SHOVEL, 1, "§f가벼운 채굴기", "", 2)
 }

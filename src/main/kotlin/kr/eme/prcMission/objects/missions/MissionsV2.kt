@@ -62,7 +62,7 @@ object MissionsV2 {
             MS.m7_desc,
             CP.m7_cond,
             RP.m7_reward,
-            "§f나이프 1개"
+            "§f구리주괴 5개"
         ),
         Mission(
             8,
@@ -78,7 +78,7 @@ object MissionsV2 {
             MS.m9_desc,
             CP.m9_cond,
             RP.m9_reward,
-            "§f커피 20개, 이동수단 1개"
+            "§f이동수단 1개"
         ),
         Mission(
             10,
@@ -110,7 +110,7 @@ object MissionsV2 {
             MS.m13_desc,
             CP.m13_cond,
             RP.m13_reward,
-            "§f2단계 드릴"
+            "§f커피 머신 모듈"
         ),
         Mission(
             14,
@@ -118,7 +118,7 @@ object MissionsV2 {
             MS.m14_desc,
             CP.m14_cond,
             RP.m14_reward,
-            "§f장도, 나이프"
+            "§fEP 4500"
         ),
         Mission(
             15,

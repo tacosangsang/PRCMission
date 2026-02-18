@@ -36,7 +36,7 @@ object RewardPresetV2 {
     )
     val m7_reward = Reward(
         items = listOf(
-            IT.knife.copy(amount = 1)
+            IT.copperIngot.copy(amount = 5)
         )
     )
     val m8_reward = Reward(
@@ -46,7 +46,6 @@ object RewardPresetV2 {
     )
     val m9_reward = Reward(
         items = listOf(
-            IT.coffee.copy(amount = 20),
             IT.transportationItem.copy(amount = 1)
         )
     )
@@ -63,14 +62,11 @@ object RewardPresetV2 {
     )
     val m13_reward = Reward(
         items = listOf(
-            IT.drill.copy(amount = 1)
+            IT.coffeeModule.copy(amount = 1)
         )
     )
     val m14_reward = Reward(
-        items = listOf(
-            IT.longSword.copy(amount = 1),
-            IT.knife.copy(amount = 1)
-        )
+        4500
     )
     val m15_reward = Reward(
         items = listOf(
