@@ -2,6 +2,7 @@ package kr.eme.prcMission.objects.items
 
 
 
+import kr.eme.prcShop.api.PRCItems
 import kr.eme.prcMission.objects.models.ItemReward as IR
 import org.bukkit.Material as M
 import org.bukkit.NamespacedKey
@@ -14,30 +15,30 @@ object ItemTemplates {
     // material
     // HIDE_ATTRIBUTES applied by default in ItemReward
 
-    val ironOre = IR(M.RED_DYE, 1, "§f철", "", 3)
+    val ironOre = IR(PRCItems.IRON)
 
-    val aluminumIngot = IR(M.RED_DYE, 1, "§f알루미늄 주괴", "", 20)
-    val ironIngot = IR(M.RED_DYE, 1, "§f철 주괴", "", 21)
-    val copperIngot = IR(M.RED_DYE, 1, "§f구리 주괴", "", 22)
-    val lithiumIngot = IR(M.RED_DYE, 1, "§f리튬 주괴", "", 23)
-    val platinumIngot = IR(M.RED_DYE, 1, "§f백금 주괴", "", 25)
-    val nickelIngot = IR(M.RED_DYE, 1, "§f니켈 주괴", "",26)
-    val titaniumIngot = IR(M.RED_DYE, 1, "§f티타늄 주괴", "", 27)
-    val ALCUIngot = IR(M.RED_DYE, 1, "§f합금 주괴","§fAl-Cu 합금 주괴", 28)
-    val CUAUIngot = IR(M.RED_DYE, 1, "§f합금 주괴", "§fCu-Au 합금 주괴", 31)
+    val aluminumIngot = IR(PRCItems.ALUMINUM_INGOT)
+    val ironIngot = IR(PRCItems.IRON_INGOT)
+    val copperIngot = IR(PRCItems.COPPER_INGOT)
+    val lithiumIngot = IR(PRCItems.LITHIUM_INGOT)
+    val platinumIngot = IR(PRCItems.PLATINUM_INGOT)
+    val nickelIngot = IR(PRCItems.NICKEL_INGOT)
+    val titaniumIngot = IR(PRCItems.TITANIUM_INGOT)
+    val ALCUIngot = IR(PRCItems.AL_CU_ALLOY_INGOT)
+    val CUAUIngot = IR(PRCItems.CU_AU_ALLOY_INGOT)
 
     // module
-    val furnaceModule = IR(M.IRON_HORSE_ARMOR, 1, "§f용광로 모듈", "", 7)
+    val furnaceModule = IR(PRCItems.FURNACE_MODULE)
 
     // recipe
-    val ironIngotRecipe = IR(M.SADDLE, 1, "§f철 주괴 레시피", "", 25)
-    val ALCURecipe = IR(M.SADDLE,1,"§fAl-Cu 합금 레시피","§f알루미늄 + 구리",32)
+    val ironIngotRecipe = IR(PRCItems.RECIPE_IRON_INGOT)
+    val ALCURecipe = IR(PRCItems.RECIPE_AL_CU_ALLOY)
 
     // other
-    val mug = IR(M.BOWL, 1, "§f머그잔", "§fJava", 1)
-    val nutrientCapsule = IR(M.ORANGE_DYE, 1, "§f영양 캡슐", "§f더 높은 등급의 작물이 나올 확률이 증가합니다.", 2)
-    val growthCapsule = IR(M.ORANGE_DYE, 1, "§f성장 캡슐", "§f작물의 수확일을 줄여줍니다.",3)
-    val weedkillerCapsule = IR(M.ORANGE_DYE, 1, "§f제초 캡슐", "§f잡초를 제거합니다.", 4)
+    val mug = IR(PRCItems.MUG)
+    val nutrientCapsule = IR(PRCItems.NUTRITION_CAPSULE)
+    val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
+    val weedkillerCapsule = IR(PRCItems.HERBICIDE_CAPSULE)
 
     val knife = IR(M.WOODEN_SHOVEL,1,"§f나이프","",10)
     val coffee = IR(M.BOWL,1,"§f커피","",2)

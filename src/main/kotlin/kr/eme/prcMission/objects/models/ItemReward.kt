@@ -10,6 +10,7 @@ import org.bukkit.attribute.AttributeModifier
 import org.bukkit.NamespacedKey
 import org.bukkit.inventory.EquipmentSlotGroup
 import kr.eme.prcMission.main
+import kr.eme.prcShop.api.PRCItem
 
 data class ItemReward(
     val material: Material,
@@ -20,6 +21,17 @@ data class ItemReward(
     val flags: Set<ItemFlag> = setOf(ItemFlag.HIDE_ATTRIBUTES),
     val metaModifier: (ItemMeta.() -> Unit)? = null
 ) {
+    /**
+     * PRCItem을 기반으로 ItemReward를 생성하는 보조 생성자.
+     */
+    constructor(prcItem: PRCItem, amount: Int = 1) : this(
+        material = prcItem.material,
+        amount = amount,
+        name = prcItem.displayName,
+        description = prcItem.description,
+        customModelData = prcItem.customModelData
+    )
+
     fun toItemStack(): ItemStack {
         val item = ItemStack(material, amount)
         val meta: ItemMeta = item.itemMeta ?: return item

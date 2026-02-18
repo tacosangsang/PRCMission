@@ -16,7 +16,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
     compileOnly("com.github.mireu9275:PRCMoney:v1.0.3")
-    compileOnly("com.github.mireu9275:PRCShop:v1.0.8")
+    compileOnly("com.github.mireu9275:PRCShop:v1.0.9")
     compileOnly(kotlin("stdlib"))
     compileOnly(kotlin("reflect"))
 }
@@ -31,7 +31,6 @@ java {
 
 tasks.jar {
     archiveFileName = "${project.name}-${project.version}.jar"
-    //destinationDirectory = file("C:\\Users\\mireu\\Desktop\\Minecraft\\Bukkit\\paper 1.21.4 (Semicolon Primary Colony)\\plugins") // Notebook
     destinationDirectory = file("C:\\Users\\Home\\Desktop\\Develop\\minecraft\\Bukkit\\paper 1.21.4 (Semicolon Primary Colony)\\plugins") // Computer
     manifest {
         attributes["Main-Class" ] = "kr.eme.prcMission.PRCMission"
