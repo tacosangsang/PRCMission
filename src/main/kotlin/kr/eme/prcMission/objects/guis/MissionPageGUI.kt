@@ -113,8 +113,13 @@ class MissionPageGUI(
                 }
 
                 else -> {
+                    // ✅ 현재 미션 +3 이상이면 스포일러 방지
+                    val spoilerThreshold = if (curIndex == -1) 3 else curIndex + 3
+                    if (global >= spoilerThreshold) {
+                        ItemStackUtil.iconSpoiler(version)
+                    }
                     // ✅ 앞 버전이 전부 완료되지 않았다면 잠금
-                    if (!MissionStateManager.canStart(version)) {
+                    else if (!MissionStateManager.canStart(version)) {
                         ItemStackUtil.iconLock(
                             "§f${mission.title}", version,
                             mission.description, mission.rewardDescription
@@ -241,7 +246,12 @@ class MissionPageGUI(
 
                 // ===== 나머지 (잠금 상태) =====
                 else -> {
-                    player.sendMessage("§c이 미션은 아직 잠금 상태입니다!")
+                    val spoilerThreshold = if (curIndex == -1) 3 else curIndex + 3
+                    if (global >= spoilerThreshold) {
+                        player.sendMessage("§c이전 임무를 완료하세요!")
+                    } else {
+                        player.sendMessage("§c이 미션은 아직 잠금 상태입니다!")
+                    }
                     SoundUtil.error(player)
                 }
             }

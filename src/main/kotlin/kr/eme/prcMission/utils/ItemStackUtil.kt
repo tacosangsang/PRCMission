@@ -99,4 +99,11 @@ object ItemStackUtil {
             MissionVersion.V2 -> withLore(Material.BROWN_DYE, title, description, reward, 24, "§a보상을 수령할 수 있습니다.")
         }
     }
+
+    fun iconSpoiler(version: MissionVersion): ItemStack {
+        return when (version) {
+            MissionVersion.V1 -> withLore(Material.BROWN_DYE, "§f???", "이전 임무를 완료하세요", "???", 7, "§c받지 않은 미션입니다.")
+            MissionVersion.V2 -> withLore(Material.BROWN_DYE, "§f???", "이전 임무를 완료하세요", "???", 28, "§c받지 않은 미션입니다.")
+        }
+    }
 }
