@@ -17,8 +17,6 @@ object ItemTemplates {
 
     val ironOre = IR(PRCItems.IRON)
 
-    val test = PRCItems.COPPER_INGOT
-
     val aluminumIngot = IR(PRCItems.ALUMINUM_INGOT)
     val ironIngot = IR(PRCItems.IRON_INGOT)
     val copperIngot = IR(PRCItems.COPPER_INGOT)
