@@ -7,7 +7,7 @@ import kr.eme.prcMission.objects.models.Condition as C
 object ConditionPresetV1 {
     val m1_cond = C(MT.DEVICE_INTERACTION, MTA.HOME_MODULE, listOf(1))
     val m2_cond = C(MT.MODULE_PLACE, MTA.MINE_MODULE, listOf(1))
-    val m3_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 2)
+    val m3_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 2, useMaxValue = true)
     val m4_cond = C(MT.TRADE, MTA.TRADE_MODULE, listOf(1))
     val m5_cond = C(MT.MODULE_PLACE, MTA.STORAGE_MODULE, listOf(1))
     val m6_cond = C(MT.MODULE_PLACE, MTA.STORAGE_MODULE, listOf(1,2), mapOf(1 to "분쇄기 모듈 설치", 2 to "용광로 모듈 설치"))
@@ -21,7 +21,7 @@ object ConditionPresetV1 {
     val m14_cond = C(MT.TRADE, MTA.TRADE_MODULE, listOf(1))
     val m15_cond = C(MT.TRADE, MTA.COFFEE_MODULE, listOf(1,2),mapOf(1 to "커피 모듈 구매", 2 to "커피 씨앗 구매"))
     val m16_cond = C(MT.DEVICE_INTERACTION, MTA.COFFEE_MODULE, listOf(1))
-    val m17_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 40)
+    val m17_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 40, useMaxValue = true)
     val m18_cond = C(MT.UPGRADE, MTA.UPGRADE, listOf(1,2,3),mapOf(1 to "곡괭이 업그레이드", 2 to "괭이 업그레이드", 3 to "물뿌리개 업그레이드"))
     val m19_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
     val m20_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
