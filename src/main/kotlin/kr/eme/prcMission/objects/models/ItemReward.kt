@@ -28,7 +28,7 @@ data class ItemReward(
     constructor(prcItem: PRCItem, amount: Int = 1) : this(
         material = prcItem.material,
         amount = amount,
-        name = prcItem.displayName,
+        name = prcItem.displayName ?: "",
         description = prcItem.description,
         customModelData = prcItem.customModelData,
         prcItem = prcItem
