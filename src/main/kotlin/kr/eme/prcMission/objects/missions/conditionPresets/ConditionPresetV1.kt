@@ -18,7 +18,7 @@ object ConditionPresetV1 {
     val m11_cond = C(MT.DEVICE_INTERACTION, MTA.WRENCH_PICKUP, listOf(1))
     val m12_cond = C(MT.FARMING, MTA.FARMING_MODULE, listOf(1))
     val m13_cond = C(MT.MODULE_PLACE, MTA.CROSS_EXTENSION, listOf(1))
-    val m14_cond = C(MT.TRADE, MTA.TRADE_MODULE, listOf(1))
+    val m14_cond = C(MT.TRADE, MTA.TRADE_CROP_MODULE, listOf(1))
     val m15_cond = C(MT.TRADE, MTA.COFFEE_MODULE, listOf(1,2),mapOf(1 to "커피 모듈 구매", 2 to "커피 씨앗 구매"))
     val m16_cond = C(MT.DEVICE_INTERACTION, MTA.COFFEE_MODULE, listOf(1))
     val m17_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 40)

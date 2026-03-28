@@ -4,6 +4,7 @@ object MissionTargets {
     const val HOME_MODULE = "home_module"
     const val MINE_MODULE = "mine_module"
     const val TRADE_MODULE = "trade_module"
+    const val TRADE_CROP_MODULE = "trade_crop_module"
     const val STORAGE_MODULE = "storage_module"
     const val CRUSHER_PROCESS = "crusher_process"
     const val FURNACE_PROCESS = "furnace_process"
