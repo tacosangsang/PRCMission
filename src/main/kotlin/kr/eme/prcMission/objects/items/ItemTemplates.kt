@@ -2,14 +2,8 @@ package kr.eme.prcMission.objects.items
 
 
 
-import kr.eme.prcMission.main
 import kr.eme.prcShop.api.PRCItems
-import org.bukkit.NamespacedKey
-import org.bukkit.attribute.Attribute
-import org.bukkit.attribute.AttributeModifier
-import org.bukkit.inventory.EquipmentSlotGroup
 import kr.eme.prcMission.objects.models.ItemReward as IR
-import org.bukkit.Material as M
 
 object ItemTemplates {
     // material
@@ -40,18 +34,6 @@ object ItemTemplates {
     val nutrientCapsule = IR(PRCItems.NUTRITION_CAPSULE)
     val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
     val weedkillerCapsule = IR(PRCItems.HERBICIDE_CAPSULE)
-    val transportationItem = IR(
-        material = M.IRON_BOOTS,
-        amount = 1,
-        name = "§f이동수단",
-        metaModifier = {
-            val stepModifier = AttributeModifier(
-                NamespacedKey(main, "step_height"),
-                1.0,
-                AttributeModifier.Operation.ADD_NUMBER,
-                EquipmentSlotGroup.FEET
-            )
-            addAttributeModifier(Attribute.STEP_HEIGHT, stepModifier)
-        }
-    )
+    val transportationItem = IR(PRCItems.IRON_BOOTS)
+
 }
