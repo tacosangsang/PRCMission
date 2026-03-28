@@ -158,8 +158,14 @@ object MissionStateManager {
         val cond = mission.condition
 
         if (cond.goal != null) {
-            // ✅ 누적형 미션
-            missionProgress.progressCount += value
+            // ✅ 누적형 / 최대값 갱신형 미션
+            if (cond.useMaxValue) {
+                // 최대값 갱신 방식 (층 기반 등) - 이미 도달한 값보다 낮으면 무시
+                missionProgress.progressCount = maxOf(missionProgress.progressCount, value)
+            } else {
+                // 기존 누적 방식
+                missionProgress.progressCount += value
+            }
             val current = missionProgress.progressCount
             val goal = cond.goal
 

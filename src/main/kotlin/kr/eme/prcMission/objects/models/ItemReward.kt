@@ -19,7 +19,8 @@ data class ItemReward(
     val description: String = "",
     val customModelData: Int? = null,
     val flags: Set<ItemFlag> = setOf(ItemFlag.HIDE_ATTRIBUTES),
-    val metaModifier: (ItemMeta.() -> Unit)? = null
+    val metaModifier: (ItemMeta.() -> Unit)? = null,
+    val prcItem: PRCItem? = null
 ) {
     /**
      * PRCItem을 기반으로 ItemReward를 생성하는 보조 생성자.
@@ -29,7 +30,8 @@ data class ItemReward(
         amount = amount,
         name = prcItem.displayName,
         description = prcItem.description,
-        customModelData = prcItem.customModelData
+        customModelData = prcItem.customModelData,
+        prcItem = prcItem
     )
 
     fun toItemStack(): ItemStack {

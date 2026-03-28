@@ -69,6 +69,9 @@ object MissionProgressListener : Listener {
         } else {
             // ====== 아직 완료 전 (진행 중) ======
             if (cond.goal != null) {
+                // 최대값 갱신형: 값이 변하지 않았으면 피드백 생략
+                if (cond.useMaxValue && progress.progressCount > e.value) return
+
                 // 누적형 중간 피드백
                 Bukkit.broadcastMessage(
                     "§7[${version.name}] ${currentMission.title} 진행도: ${progress.progressCount} / ${cond.goal}"

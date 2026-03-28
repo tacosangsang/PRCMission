@@ -1,11 +1,14 @@
 package kr.eme.prcMission.commands
 
+import kr.eme.prcMission.api.events.MissionEvent
 import kr.eme.prcMission.enums.MissionVersion
 import kr.eme.prcMission.managers.MissionManager
+import kr.eme.prcMission.managers.RewardManager
 import kr.eme.prcMission.managers.MissionStateManager
 import kr.eme.prcMission.objects.guis.MissionInitGUI
 import kr.eme.prcMission.objects.items.ItemTemplates
 import kr.eme.prcMission.objects.models.ItemReward
+import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
 import org.bukkit.command.TabExecutor
@@ -24,7 +27,7 @@ object MissionCommand : TabExecutor {
 
         val sub = args[0].lowercase()
 
-        if (sender !is Player && sub in setOf("open", "clear", "complete")) {
+        if (sender !is Player && sub in setOf("open", "clear", "complete", "reward", "valuesend")) {
             sender.sendMessage("§c이 명령어는 플레이어만 사용할 수 있습니다.")
             return true
         }
@@ -36,6 +39,8 @@ object MissionCommand : TabExecutor {
             "clear"     -> clearState(sender, args.getOrNull(1))
             "debug"     -> debugItemNBT(sender)
             "testitem"  -> testItem(sender, args.getOrNull(1))
+            "reward"    -> rewardMission(sender, args.getOrNull(1), args.getOrNull(2))
+            "valuesend" -> valueSend(sender as Player, args.getOrNull(1), args.getOrNull(2))
             else        -> usage(sender)
         }
     }
@@ -51,7 +56,7 @@ object MissionCommand : TabExecutor {
         }
 
         if (args.size == 1) {
-            val base = listOf("open", "reload", "complete", "clear", "debug", "testitem")
+            val base = listOf("open", "reload", "complete", "clear", "debug", "testitem", "reward", "valuesend")
             return base.filter { it.startsWith(args[0].lowercase()) }.toMutableList()
         }
 
@@ -66,6 +71,17 @@ object MissionCommand : TabExecutor {
             }
         }
 
+        if (args.size == 2 && args[0].equals("reward", ignoreCase = true)) {
+            return MissionVersion.entries.map { it.name.lowercase() }.toMutableList()
+        }
+
+        if (args.size == 3 && args[0].equals("reward", ignoreCase = true)) {
+            val version = runCatching { MissionVersion.valueOf(args[1].uppercase()) }.getOrNull()
+            if (version != null) {
+                return MissionManager.getMissions(version).map { it.id.toString() }.toMutableList()
+            }
+        }
+
         // 여기 추가: /mission testItem <아이템명> 자동완성
         if (args.size == 2 && args[0].equals("testitem", ignoreCase = true)) {
             return kr.eme.prcMission.objects.items.ItemTemplates::class.memberProperties
@@ -74,15 +90,21 @@ object MissionCommand : TabExecutor {
                 .toMutableList()
         }
 
+        if (args.size == 2 && args[0].equals("valuesend", ignoreCase = true)) {
+            return MissionVersion.entries.map { it.name.lowercase() }.toMutableList()
+        }
+
         return mutableListOf()
     }
 
     // ===== helpers =====
     private fun usage(sender: CommandSender): Boolean {
-        sender.sendMessage("§e사용법: /mission [open|reload|complete|clear|debug]")
+        sender.sendMessage("§e사용법: /mission [open|reload|complete|clear|debug|reward|valuesend]")
         sender.sendMessage("§7 - /mission open [v1|v2]")
         sender.sendMessage("§7 - /mission complete <v1|v2> [id]")
         sender.sendMessage("§7 - /mission clear [v1|v2|all]")
+        sender.sendMessage("§7 - /mission reward <v1|v2> <1~20>")
+        sender.sendMessage("§7 - /mission valuesend <v1|v2> <value>")
         return true
     }
 
@@ -220,6 +242,72 @@ object MissionCommand : TabExecutor {
             sender.sendMessage("§a${reward.name} 지급 완료!")
         }
 
+        return true
+    }
+
+    private fun rewardMission(sender: CommandSender, versionArg: String?, idArg: String?): Boolean {
+        if (sender !is Player) {
+            sender.sendMessage("§c플레이어만 사용할 수 있습니다.")
+            return true
+        }
+        if (!sender.isOp) {
+            sender.sendMessage("§c권한이 없습니다.")
+            return true
+        }
+
+        val version = runCatching { MissionVersion.valueOf(versionArg?.uppercase() ?: "") }.getOrNull()
+        if (version == null) {
+            sender.sendMessage("§c버전을 지정해야 합니다. (예: v1, v2)")
+            return true
+        }
+
+        val missionId = idArg?.toIntOrNull()
+        if (missionId == null) {
+            sender.sendMessage("§c미션 ID를 지정해야 합니다. (1~20)")
+            return true
+        }
+
+        val mission = MissionManager.getMissions(version).firstOrNull { it.id == missionId }
+        if (mission == null) {
+            sender.sendMessage("§c존재하지 않는 미션 ID입니다: $missionId")
+            return true
+        }
+
+        RewardManager.give(mission, sender.name)
+        sender.sendMessage("§a[${version.name}] 미션 $missionId 보상이 지급되었습니다.")
+        return true
+    }
+
+    private fun valueSend(player: Player, versionArg: String?, valueArg: String?): Boolean {
+        if (!player.isOp) {
+            player.sendMessage("§c권한이 없습니다.")
+            return true
+        }
+
+        val version = runCatching { MissionVersion.valueOf(versionArg?.uppercase() ?: "") }.getOrNull()
+        if (version == null) {
+            player.sendMessage("§c버전을 지정해야 합니다. (예: v1, v2)")
+            return true
+        }
+
+        val value = valueArg?.toIntOrNull()
+        if (value == null) {
+            player.sendMessage("§c값을 숫자로 지정해야 합니다. (예: /mission valuesend v1 10)")
+            return true
+        }
+
+        val curIndex = MissionStateManager.getCurrentIndex(version)
+        val mission = MissionManager.getCurrent(version, curIndex)
+        if (mission == null) {
+            player.sendMessage("§c현재 진행 중인 미션이 없습니다.")
+            return true
+        }
+
+        val cond = mission.condition
+        Bukkit.getPluginManager().callEvent(
+            MissionEvent(player, version, cond.type, cond.target, value)
+        )
+        player.sendMessage("§a[${version.name}] 미션 '${mission.title}' 에 value=$value 이벤트를 전송했습니다.")
         return true
     }
 }

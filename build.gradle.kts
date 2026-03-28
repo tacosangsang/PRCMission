@@ -31,7 +31,7 @@ java {
 
 tasks.jar {
     archiveFileName = "${project.name}-${project.version}.jar"
-    destinationDirectory = file("\\\\172.30.1.38\\공유폴더\\paper 1.21.4\\plugins")
+    destinationDirectory = file("C:\\Users\\mireu\\Desktop")
     manifest {
         attributes["Main-Class" ] = "kr.eme.prcMission.PRCMission"
     }

@@ -28,13 +28,19 @@ object RewardManager {
         }
     }
     private fun giveItem(player: Player, ir: ItemReward) {
-        val stack = ItemStackUtil.rewardItem(
-            material = ir.material,
-            name = ir.name,
-            lore = if (ir.description.isNotBlank()) listOf(ir.description) else null,
-            customModelData = ir.customModelData,
-            amount = ir.amount
-        )
+        val stack = if (ir.prcItem != null) {
+            // PRCItem이 있으면 PRCItem.create()로 정확한 아이템 생성
+            ir.prcItem.create(ir.amount)
+        } else {
+            // PRCItem이 없는 커스텀 아이템은 기존 방식 사용
+            ItemStackUtil.rewardItem(
+                material = ir.material,
+                name = ir.name,
+                lore = if (ir.description.isNotBlank()) listOf(ir.description) else null,
+                customModelData = ir.customModelData,
+                amount = ir.amount
+            )
+        }
 
         val left = player.inventory.addItem(stack)
         if (left.isNotEmpty()) {

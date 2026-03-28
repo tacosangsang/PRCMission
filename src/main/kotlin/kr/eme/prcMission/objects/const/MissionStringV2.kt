@@ -29,7 +29,7 @@ object MissionStringV2 {
     const val m9_desc = "출입모듈을 설치하세요."
 
     const val m10_title = "탑 탐사"
-    const val m10_desc = "뼈의 길을 따라 올라간 탑에서 탐사를 진행하세요."
+    const val m10_desc = "뼈의 길을 따라 올라간 탑에서 탐사를 통해 특별한 아이템을 찾으세요."
 
     const val m11_title = "디스크 내용 확인"
     const val m11_desc = "홈 모듈에서 디스크의 내용을 확인하세요"
