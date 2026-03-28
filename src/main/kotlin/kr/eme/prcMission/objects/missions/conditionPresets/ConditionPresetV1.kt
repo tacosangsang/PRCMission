@@ -23,6 +23,6 @@ object ConditionPresetV1 {
     val m16_cond = C(MT.DEVICE_INTERACTION, MTA.COFFEE_MODULE, listOf(1))
     val m17_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 40, useMaxValue = true)
     val m18_cond = C(MT.UPGRADE, MTA.UPGRADE, listOf(1,2,3),mapOf(1 to "곡괭이 업그레이드", 2 to "괭이 업그레이드", 3 to "물뿌리개 업그레이드"))
-    val m19_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
+    val m19_cond = C(MT.CRAFTING, MTA.CRAFTING, listOf(1))
     val m20_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
 }

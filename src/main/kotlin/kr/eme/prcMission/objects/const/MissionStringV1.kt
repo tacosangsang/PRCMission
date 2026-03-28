@@ -43,8 +43,8 @@ object MissionStringV1 {
     const val m14_title = "작물 판매"
     const val m14_desc = "수확한 작물을 통신 모듈에 판매하세요."
 
-    const val m15_title = "커피 모듈 및 커피 씨앗 구매"
-    const val m15_desc = "통신 모듈에서 커미 모듈 및 커피 씨앗을 구매하세요."
+    const val m15_title = "커피 머신 모듈 및 커피 씨앗 구매"
+    const val m15_desc = "통신 모듈에서 커피 머신 모듈 및 커피 씨앗을 구매하세요."
 
     const val m16_title = "커피 내리기"
     const val m16_desc = "수확한 커피콩으로 커피를 내려마시세요."
@@ -55,9 +55,9 @@ object MissionStringV1 {
     const val m18_title = "도구 업그레이드"
     const val m18_desc = "모든 도구를 1단계 업그레이드 하세요."
 
-    const val m19_title = "누적 EP 300K 돌파"
-    const val m19_desc = "누적 EP를 300K 돌파하세요."
+    const val m19_title = "캡슐건 제작"
+    const val m19_desc = "캡슐건을 제작하세요."
 
-    const val m20_title = "누적 EP 500K 돌파"
-    const val m20_desc = "누적 EP를 500K 돌파하세요."
+    const val m20_title = "누적 EP 25K 돌파"
+    const val m20_desc = "누적 EP를 25K 돌파하세요."
 }

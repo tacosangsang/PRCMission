@@ -113,7 +113,7 @@ object MissionsV1 {
             MS.m12_desc,
             CP.m12_cond,
             RP.m12_reward,
-            "§f철 10개"
+            "§f철 주괴 10개"
         ),
 
         // Page 4 (13~16)
@@ -123,7 +123,7 @@ object MissionsV1 {
             MS.m13_desc,
             CP.m13_cond,
             RP.m13_reward,
-            "§f철 20개"
+            "§f철 주괴 20개"
         ),
         Mission(
             14,
@@ -173,7 +173,7 @@ object MissionsV1 {
             MS.m19_desc,
             CP.m19_cond,
             RP.m19_reward,
-            "§fEP 2000"
+            "§f영양캡슐 5개, 성장캡슐 5개"
         ),
         Mission(
             20,
@@ -181,7 +181,7 @@ object MissionsV1 {
             MS.m20_desc,
             CP.m20_cond,
             RP.m20_reward,
-            "§f백금 주괴 15개"
+            "§fEP 2000"
         )
     )
 }

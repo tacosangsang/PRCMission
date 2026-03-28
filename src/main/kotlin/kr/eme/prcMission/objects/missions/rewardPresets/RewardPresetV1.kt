@@ -52,12 +52,12 @@ object RewardPresetV1 {
     )
     val m12_reward = Reward(
         items = listOf(
-            IT.ironOre.copy(amount = 10)
+            IT.ironIngot.copy(amount = 10)
         )
     )
     val m13_reward = Reward(
         items = listOf(
-            IT.ironOre.copy(amount = 20)
+            IT.ironIngot.copy(amount = 20)
         )
     )
     val m14_reward = Reward(
@@ -81,11 +81,12 @@ object RewardPresetV1 {
         1250
     )
     val m19_reward = Reward(
-        2000
+        items = listOf(
+            IT.nutrientCapsule.copy(amount = 5),
+            IT.growthCapsule.copy(amount = 5)
+        )
     )
     val m20_reward = Reward(
-        items = listOf(
-            IT.platinumIngot.copy(amount = 15)
-        )
+        2000
     )
 }
