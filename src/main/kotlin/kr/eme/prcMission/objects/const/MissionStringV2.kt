@@ -2,7 +2,7 @@ package kr.eme.prcMission.objects.const
 
 object MissionStringV2 {
     const val m1_title = "작물 판매"
-    const val m1_desc = "작물을 50개 이상 판매하세요."
+    const val m1_desc = "작물을 250개 이상 판매하세요."
 
     const val m2_title = "캡슐건 사용"
     const val m2_desc = "캡슐건을 이용하여 토양에 캡슐을 공급하세요."
@@ -29,13 +29,13 @@ object MissionStringV2 {
     const val m9_desc = "출입모듈을 설치하세요."
 
     const val m10_title = "탑 탐사"
-    const val m10_desc = "뼈의 길을 따라 올라간 탑에서 탐사를 통해 특별한 아이템을 찾으세요."
+    const val m10_desc = "뼈의 길을 따라 올라간 탑에서 탐사를 진행하세요."
 
-    const val m11_title = "디스크 내용 확인"
-    const val m11_desc = "홈 모듈에서 디스크의 내용을 확인하세요"
+    const val m11_title = "USB 내용 확인"
+    const val m11_desc = "홈 모듈에서 USB 내용을 확인해보세요."
 
-    const val m12_title = "누적 EP 40K 돌파"
-    const val m12_desc = "누적 EP를 40K 돌파하세요."
+    const val m12_title = "누적 EP 60K 돌파"
+    const val m12_desc = "획득 EP가 60K을 돌파하세요."
 
     const val m13_title = "스토리지 모듈(대) 설치"
     const val m13_desc = "스토리지 모듈 (대)를 원하는 곳에 증설하세요."
@@ -53,11 +53,11 @@ object MissionStringV2 {
     const val m17_desc = "농사 모듈에서 경작지를 총 300번 경작하세요."
 
     const val m18_title = "작물 판매"
-    const val m18_desc = "작물을 150개 판매하세요."
+    const val m18_desc = "작물을 500개 판매하세요."
 
     const val m19_title = "무거운 채굴기 제작"
     const val m19_desc = "프린트 모듈에서 무거운 채굴기를 제작하세요."
 
-    const val m20_title = "누적 EP 60K 돌파"
-    const val m20_desc = "누적 EP를 60K 돌파하세요."
+    const val m20_title = "누적 EP 200K 돌파"
+    const val m20_desc = "획득 EP가 200K을 돌파하세요."
 }

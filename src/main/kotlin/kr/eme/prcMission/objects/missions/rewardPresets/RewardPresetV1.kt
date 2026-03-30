@@ -8,7 +8,7 @@ object RewardPresetV1 {
         500
     )
     val m2_reward = Reward(
-        250
+        500
     )
     val m3_reward = Reward(
         items = listOf(
@@ -26,7 +26,7 @@ object RewardPresetV1 {
         )
     )
     val m6_reward = Reward(
-        300
+        500
     )
     val m7_reward = Reward(
         items = listOf(
@@ -34,7 +34,7 @@ object RewardPresetV1 {
         )
     )
     val m8_reward = Reward(
-        500
+        750
     )
     val m9_reward = Reward(
         items = listOf(
@@ -48,7 +48,7 @@ object RewardPresetV1 {
         )
     )
     val m11_reward = Reward(
-        550
+        750
     )
     val m12_reward = Reward(
         items = listOf(
@@ -61,32 +61,32 @@ object RewardPresetV1 {
         )
     )
     val m14_reward = Reward(
-        750
+        1000
     )
     val m15_reward = Reward(
         items = listOf(
-            IT.mug.copy(amount = 5)
+            IT.mug.copy(amount = 15)
         )
     )
     val m16_reward = Reward(
-        800
+        1500
     )
     val m17_reward = Reward(
         items = listOf(
             IT.copperIngot.copy(amount = 15),
-            IT.lithiumIngot.copy(amount = 3)
+            IT.lithiumIngot.copy(amount = 7)
         )
     )
     val m18_reward = Reward(
-        1250
+        2500
     )
     val m19_reward = Reward(
         items = listOf(
-            IT.nutrientCapsule.copy(amount = 5),
-            IT.growthCapsule.copy(amount = 5)
+            IT.nutrientCapsule.copy(amount = 16),
+            IT.growthCapsule.copy(amount = 16)
         )
     )
     val m20_reward = Reward(
-        2000
+        5000
     )
 }

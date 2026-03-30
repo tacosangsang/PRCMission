@@ -28,6 +28,11 @@ object ItemTemplates {
     // recipe
     val ironIngotRecipe = IR(PRCItems.RECIPE_IRON_INGOT)
     val ALCURecipe = IR(PRCItems.RECIPE_AL_CU_ALLOY)
+    val ALMGRecipe = IR(PRCItems.RECIPE_AL_MG_ALLOY)
+
+    // upgrade / parts
+    val alloyGear = IR(PRCItems.ALLOY_GEAR_AL_CU)
+    val alloyCoolingMold = IR(PRCItems.ALLOY_COOLING_MOLD_CU_AU)
 
     // other
     val mug = IR(PRCItems.MUG)
