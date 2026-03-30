@@ -87,27 +87,25 @@ class MissionPageGUI(
                     // ✅ 진행도 정보 붙이기
                     val progress = MissionStateManager.getProgress(version, mission.id)
                     val meta = item.itemMeta
-                    val lore = mutableListOf<String>()
+                    val existingLore = meta.lore?.toMutableList() ?: mutableListOf()
 
                     if (mission.condition.goal != null) {
                         // 누적형 미션
-                        lore.add("§7진행도: ${progress.progressCount}/${mission.condition.goal}")
+                        existingLore.add("§7진행도: ${progress.progressCount}/${mission.condition.goal}")
                     } else {
                         // 체크리스트형 미션
                         mission.condition.values.forEach { v ->
                             val desc = mission.condition.descriptions[v] ?: return@forEach
                             if (progress.completedConditions.contains(v)) {
-                                lore.add("§a✔ $desc 완료")
+                                existingLore.add("§a✔ $desc 완료")
                             } else {
-                                lore.add("§c✘ $desc 미완료")
+                                existingLore.add("§c✘ $desc 미완료")
                             }
                         }
                     }
 
-                    if (lore.isNotEmpty()) {
-                        meta.lore = lore
-                        item.itemMeta = meta
-                    }
+                    meta.lore = existingLore
+                    item.itemMeta = meta
 
                     item
                 }
