@@ -24,7 +24,7 @@ object MissionsV1 {
             MS.m2_desc,
             CP.m2_cond,
             RP.m2_reward,
-            "§fEP 250"
+            "§fEP 500"
         ),
 
         Mission(
@@ -62,7 +62,7 @@ object MissionsV1 {
             MS.m6_desc,
             CP.m6_cond,
             RP.m6_reward,
-            "§fEP 300"
+            "§fEP 500"
         ),
 
         Mission(
@@ -79,7 +79,7 @@ object MissionsV1 {
             MS.m8_desc,
             CP.m8_cond,
             RP.m8_reward,
-            "§fEP 500"
+            "§fEP 750"
         ),
 
         // Page 3 (9~12)
@@ -105,7 +105,7 @@ object MissionsV1 {
             MS.m11_desc,
             CP.m11_cond,
             RP.m11_reward,
-            "§fEP 550"
+            "§fEP 750"
         ),
         Mission(
             12,
@@ -131,7 +131,7 @@ object MissionsV1 {
             MS.m14_desc,
             CP.m14_cond,
             RP.m14_reward,
-            "§fEP 750"
+            "§fEP 1000"
         ),
         Mission(
             15,
@@ -139,7 +139,7 @@ object MissionsV1 {
             MS.m15_desc,
             CP.m15_cond,
             RP.m15_reward,
-            "§f커피잔 5개"
+            "§f커피잔 15개"
         ),
         Mission(
             16,
@@ -147,7 +147,7 @@ object MissionsV1 {
             MS.m16_desc,
             CP.m16_cond,
             RP.m16_reward,
-            "§fEP 800"
+            "§fEP 1500"
         ),
 
         // Page 5 (17~20)
@@ -157,7 +157,7 @@ object MissionsV1 {
             MS.m17_desc,
             CP.m17_cond,
             RP.m17_reward,
-            "§f구리 주괴 15개, 리튬 주괴 3개"
+            "§f구리 주괴 15개, 리튬 주괴 7개"
         ),
         Mission(
             18,
@@ -165,7 +165,7 @@ object MissionsV1 {
             MS.m18_desc,
             CP.m18_cond,
             RP.m18_reward,
-            "§fEP 1250"
+            "§fEP 2500"
         ),
         Mission(
             19,
@@ -173,7 +173,7 @@ object MissionsV1 {
             MS.m19_desc,
             CP.m19_cond,
             RP.m19_reward,
-            "§f영양캡슐 5개, 성장캡슐 5개"
+            "§f영양캡슐 16개, 성장캡슐 16개"
         ),
         Mission(
             20,
@@ -181,7 +181,7 @@ object MissionsV1 {
             MS.m20_desc,
             CP.m20_cond,
             RP.m20_reward,
-            "§fEP 2000"
+            "§fEP 5000"
         )
     )
 }
