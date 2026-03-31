@@ -166,7 +166,7 @@ object MissionsV2 {
             MS.m20_desc,
             CP.m20_cond,
             RP.m20_reward,
-            "§f엔딩 접근용 아이템"
+            "§7???"
         )
     )
 }

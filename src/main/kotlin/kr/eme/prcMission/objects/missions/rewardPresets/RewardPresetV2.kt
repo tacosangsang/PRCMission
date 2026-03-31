@@ -106,7 +106,7 @@ object RewardPresetV2 {
     )
     val m20_reward = Reward(
         items = listOf(
-            // 엔딩 접근용 아이템
+            IT.endingItem.copy(amount = 1)
         )
     )
 }

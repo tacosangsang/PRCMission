@@ -40,5 +40,6 @@ object ItemTemplates {
     val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
     val weedkillerCapsule = IR(PRCItems.HERBICIDE_CAPSULE)
     val transportationItem = IR(PRCItems.IRON_BOOTS)
+    val endingItem = IR(PRCItems.ENDING_ITEM)
 
 }
