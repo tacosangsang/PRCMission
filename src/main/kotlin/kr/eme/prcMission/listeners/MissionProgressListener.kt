@@ -4,7 +4,9 @@ import kr.eme.prcMission.api.events.MissionEvent
 import kr.eme.prcMission.enums.MissionVersion
 import kr.eme.prcMission.managers.MissionManager
 import kr.eme.prcMission.managers.MissionStateManager
+import kr.eme.prcMission.objects.const.MissionTypes
 import kr.eme.prcMission.utils.SoundUtil
+import kr.eme.prcMoney.managers.MoneyLogManager
 import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
@@ -51,6 +53,9 @@ object MissionProgressListener : Listener {
                 val next = MissionManager.getCurrent(version, curIndexAfter)
                 if (next != null) {
                     Bukkit.broadcastMessage("§e다음 미션이 해금되었습니다: ${next.title}")
+
+                    // EP 마일스톤 미션이 활성화됐을 때, 이미 달성했으면 자동 완료
+                    checkEpMilestone(e.player, version, next)
                 }
             } else {
                 // 현재 버전의 모든 미션 완료
@@ -84,6 +89,27 @@ object MissionProgressListener : Listener {
                     Bukkit.broadcastMessage("§7[${version.name}] $desc §a완료!")
                 }
             }
+        }
+    }
+
+    /**
+     * EP 마일스톤 미션이 활성화됐을 때, 이미 총 수입이 마일스톤을 넘었으면 자동으로 이벤트 발생
+     */
+    // 버전-미션ID별 EP 마일스톤 기준값
+    private val epMilestoneThresholds = mapOf(
+        (MissionVersion.V1 to 20) to 25_000,
+        (MissionVersion.V2 to 12) to 60_000,
+        (MissionVersion.V2 to 20) to 200_000
+    )
+
+    private fun checkEpMilestone(player: org.bukkit.entity.Player, version: MissionVersion, mission: kr.eme.prcMission.objects.models.Mission) {
+        if (mission.condition.type != MissionTypes.PLAYER_EP) return
+        val totalEarned = MoneyLogManager.getPlayerTotalEarned(player.name)
+        val threshold = epMilestoneThresholds[version to mission.id] ?: return
+        if (totalEarned >= threshold) {
+            Bukkit.getPluginManager().callEvent(
+                MissionEvent(player, version, mission.condition.type, mission.condition.target, 1)
+            )
         }
     }
 }

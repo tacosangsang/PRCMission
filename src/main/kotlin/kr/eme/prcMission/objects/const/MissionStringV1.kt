@@ -32,7 +32,7 @@ object MissionStringV1 {
     const val m10_desc = "단단한 괭이와 소형 물뿌리개를 제작하세요."
 
     const val m11_title = "모듈 아이템화"
-    const val m11_desc = "렌치를 사용하여 설치한 모듈을 아이템화 하세요."
+    const val m11_desc = "스패너를 사용하여 설치한 모듈을 아이템화 하세요."
 
     const val m12_title = "물 공급"
     const val m12_desc = "농사 모듈에 씨앗을 심은 뒤 물뿌리개를 이용하여 물을 공급하세요."
