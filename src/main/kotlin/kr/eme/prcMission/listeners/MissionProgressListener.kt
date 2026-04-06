@@ -103,13 +103,25 @@ object MissionProgressListener : Listener {
     )
 
     private fun checkEpMilestone(player: org.bukkit.entity.Player, version: MissionVersion, mission: kr.eme.prcMission.objects.models.Mission) {
-        if (mission.condition.type != MissionTypes.PLAYER_EP) return
-        val totalEarned = MoneyLogManager.getPlayerTotalEarned(player.name)
-        val threshold = epMilestoneThresholds[version to mission.id] ?: return
+        Bukkit.broadcastMessage("§7[DEBUG] checkEpMilestone 진입 - ${version.name} m${mission.id}, type=${mission.condition.type}")
+        if (mission.condition.type != MissionTypes.PLAYER_EP) {
+            Bukkit.broadcastMessage("§7[DEBUG] PLAYER_EP 타입 아님, 스킵")
+            return
+        }
+        val totalEarned = MoneyLogManager.getTotalEarned()
+        val threshold = epMilestoneThresholds[version to mission.id]
+        Bukkit.broadcastMessage("§7[DEBUG] totalEarned=$totalEarned, threshold=$threshold, missionId=${mission.id}")
+        if (threshold == null) {
+            Bukkit.broadcastMessage("§7[DEBUG] threshold가 null, 스킵")
+            return
+        }
         if (totalEarned >= threshold) {
+            Bukkit.broadcastMessage("§7[DEBUG] 조건 충족! 이벤트 발생")
             Bukkit.getPluginManager().callEvent(
                 MissionEvent(player, version, mission.condition.type, mission.condition.target, 1)
             )
+        } else {
+            Bukkit.broadcastMessage("§7[DEBUG] 조건 미충족 ($totalEarned < $threshold)")
         }
     }
 }
