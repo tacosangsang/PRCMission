@@ -3,6 +3,7 @@ package kr.eme.prcMission
 import kr.eme.prcMission.commands.MissionCommand
 import kr.eme.prcMission.listeners.GUIListener
 import kr.eme.prcMission.listeners.MissionProgressListener
+import kr.eme.prcMission.managers.HudManager
 import kr.eme.prcMission.managers.MissionStateManager
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -12,9 +13,11 @@ class PRCMission : JavaPlugin() {
         MissionStateManager.init(dataFolder)
         registerCommands()
         registerEvents()
+        HudManager.start()
         logger.info("SemiMission 플러그인이 활성화되었습니다.")
     }
     override fun onDisable() {
+        HudManager.stop()
         logger.info("SemiMission 플러그인이 비활성화되었습니다.")
     }
     private fun registerCommands() {
