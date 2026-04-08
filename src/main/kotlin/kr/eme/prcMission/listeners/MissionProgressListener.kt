@@ -4,7 +4,6 @@ import kr.eme.prcMission.api.events.MissionEvent
 import kr.eme.prcMission.enums.MissionVersion
 import kr.eme.prcMission.managers.MissionManager
 import kr.eme.prcMission.managers.MissionStateManager
-import kr.eme.prcMission.objects.const.MissionTypes
 import kr.eme.prcMission.utils.SoundUtil
 import kr.eme.prcMoney.managers.MoneyLogManager
 import org.bukkit.Bukkit
@@ -103,25 +102,26 @@ object MissionProgressListener : Listener {
     )
 
     private fun checkEpMilestone(player: org.bukkit.entity.Player, version: MissionVersion, mission: kr.eme.prcMission.objects.models.Mission) {
-        Bukkit.broadcastMessage("§7[DEBUG] checkEpMilestone 진입 - ${version.name} m${mission.id}, type=${mission.condition.type}")
-        if (mission.condition.type != MissionTypes.PLAYER_EP) {
-            Bukkit.broadcastMessage("§7[DEBUG] PLAYER_EP 타입 아님, 스킵")
-            return
-        }
+        //Bukkit.broadcastMessage("§7[DEBUG] checkEpMilestone 진입 - ${version.name} m${mission.id}, type=${mission.condition.type}")
+//        if (mission.condition.type != MissionTypes.PLAYER_EP) {
+//            Bukkit.broadcastMessage("§7[DEBUG] PLAYER_EP 타입 아님, 스킵")
+//            return
+//        }
         val totalEarned = MoneyLogManager.getTotalEarned()
         val threshold = epMilestoneThresholds[version to mission.id]
-        Bukkit.broadcastMessage("§7[DEBUG] totalEarned=$totalEarned, threshold=$threshold, missionId=${mission.id}")
+//        Bukkit.broadcastMessage("§7[DEBUG] totalEarned=$totalEarned, threshold=$threshold, missionId=${mission.id}")
         if (threshold == null) {
-            Bukkit.broadcastMessage("§7[DEBUG] threshold가 null, 스킵")
+//            Bukkit.broadcastMessage("§7[DEBUG] threshold가 null, 스킵")
             return
         }
         if (totalEarned >= threshold) {
-            Bukkit.broadcastMessage("§7[DEBUG] 조건 충족! 이벤트 발생")
+//            Bukkit.broadcastMessage("§7[DEBUG] 조건 충족! 이벤트 발생")
             Bukkit.getPluginManager().callEvent(
                 MissionEvent(player, version, mission.condition.type, mission.condition.target, 1)
             )
-        } else {
-            Bukkit.broadcastMessage("§7[DEBUG] 조건 미충족 ($totalEarned < $threshold)")
         }
+//         else {
+//            Bukkit.broadcastMessage("§7[DEBUG] 조건 미충족 ($totalEarned < $threshold)")
+//        }
     }
 }
