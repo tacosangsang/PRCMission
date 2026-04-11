@@ -2,6 +2,7 @@ package kr.eme.prcMission.commands
 
 import kr.eme.prcMission.api.events.MissionEvent
 import kr.eme.prcMission.enums.MissionVersion
+import kr.eme.prcMission.managers.HudManager
 import kr.eme.prcMission.managers.MissionManager
 import kr.eme.prcMission.managers.RewardManager
 import kr.eme.prcMission.managers.MissionStateManager
@@ -154,13 +155,37 @@ object MissionCommand : TabExecutor {
 
         val targetId = idArg?.toIntOrNull()
         if (targetId != null) {
-            val idx = MissionManager.currentIndexOf(version, targetId)
-            if (idx == -1) {
+            val targetIdx = MissionManager.currentIndexOf(version, targetId)
+            if (targetIdx == -1) {
                 sender.sendMessage("§c존재하지 않는 미션 ID입니다.")
                 return true
             }
-            MissionStateManager.advanceIf(version, targetId)
-            sender.sendMessage("§a[${version.name}] 미션(ID=$targetId) 강제 진행됨. (현재 인덱스: ${MissionStateManager.getCurrentIndex(version)})")
+
+            // 이전 버전이 클리어되지 않았으면 자동 클리어
+            val allVersions = MissionVersion.entries
+            val versionIdx = allVersions.indexOf(version)
+            for (i in 0 until versionIdx) {
+                val prev = allVersions[i]
+                if (!MissionStateManager.isVersionCleared(prev)) {
+                    val prevMissions = MissionManager.getMissions(prev)
+                    if (MissionStateManager.getCurrentIndex(prev) == -1) {
+                        MissionStateManager.acceptFirst(prev)
+                    }
+                    MissionStateManager.setCurrentIndex(prev, prevMissions.size)
+                    sender.sendMessage("§7[${prev.name}] 전체 자동 클리어됨.")
+                }
+            }
+
+            // 미수락 상태면 먼저 수락 처리
+            if (MissionStateManager.getCurrentIndex(version) == -1) {
+                MissionStateManager.acceptFirst(version)
+            }
+
+            // 1번부터 targetId까지 모두 클리어 (인덱스를 targetIdx+1로 설정)
+            MissionStateManager.setCurrentIndex(version, targetIdx + 1)
+            MissionStateManager.save()
+            HudManager.refreshAll()
+            sender.sendMessage("§a[${version.name}] 미션 1~$targetId 까지 강제 클리어됨. (현재 인덱스: ${MissionStateManager.getCurrentIndex(version)})")
             return true
         }
 
@@ -172,6 +197,7 @@ object MissionCommand : TabExecutor {
         }
 
         MissionStateManager.advanceIf(version, mission.id)
+        HudManager.refreshAll()
         sender.sendMessage("§a[${version.name}] 미션 강제 진행됨. (현재 인덱스: ${MissionStateManager.getCurrentIndex(version)})")
         return true
     }
@@ -184,6 +210,7 @@ object MissionCommand : TabExecutor {
 
         if (versionArg == null || versionArg.equals("all", ignoreCase = true)) {
             MissionStateManager.resetAll()
+            HudManager.refreshAll()
             sender.sendMessage("§e모든 버전의 미션 상태가 초기화되었습니다.")
             return true
         }
@@ -195,6 +222,7 @@ object MissionCommand : TabExecutor {
         }
 
         MissionStateManager.reset(version)
+        HudManager.refreshAll()
         sender.sendMessage("§e[${version.name}] 미션 상태가 초기화되었습니다.")
         return true
     }

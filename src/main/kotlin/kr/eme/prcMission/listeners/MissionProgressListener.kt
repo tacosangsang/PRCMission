@@ -2,6 +2,7 @@ package kr.eme.prcMission.listeners
 
 import kr.eme.prcMission.api.events.MissionEvent
 import kr.eme.prcMission.enums.MissionVersion
+import kr.eme.prcMission.managers.HudManager
 import kr.eme.prcMission.managers.MissionManager
 import kr.eme.prcMission.managers.MissionStateManager
 import kr.eme.prcMission.utils.SoundUtil
@@ -89,6 +90,8 @@ object MissionProgressListener : Listener {
                 }
             }
         }
+
+        HudManager.refreshAll()
     }
 
     /**

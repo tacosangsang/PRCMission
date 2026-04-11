@@ -17,7 +17,6 @@ import java.util.UUID
 import java.util.concurrent.ConcurrentHashMap
 
 object HudManager {
-    private var taskId = -1
     private val playerBoards = ConcurrentHashMap<UUID, Scoreboard>()
 
     private const val OBJECTIVE_NAME = "prc_mission_hud"
@@ -34,27 +33,28 @@ object HudManager {
     private val SEP_COLOR = TextColor.color(80, 80, 80)
 
     fun start() {
-        if (taskId != -1) return
-        taskId = Bukkit.getScheduler().runTaskTimer(main, Runnable {
-            cleanupOffline()
-            for (player in Bukkit.getOnlinePlayers()) update(player)
-        }, 20L, 20L).taskId
+        for (player in Bukkit.getOnlinePlayers()) update(player)
     }
 
     fun stop() {
-        if (taskId != -1) {
-            Bukkit.getScheduler().cancelTask(taskId)
-            taskId = -1
-        }
         for (player in Bukkit.getOnlinePlayers()) {
             player.scoreboard = Bukkit.getScoreboardManager().newScoreboard
         }
         playerBoards.clear()
     }
 
-    private fun cleanupOffline() {
+    fun show(player: Player) {
+        update(player)
+    }
+
+    fun hide(player: Player) {
+        playerBoards.remove(player.uniqueId)
+    }
+
+    fun refreshAll() {
         val online = Bukkit.getOnlinePlayers().map { it.uniqueId }.toSet()
         playerBoards.keys.removeAll { it !in online }
+        for (player in Bukkit.getOnlinePlayers()) update(player)
     }
 
     private fun resolveActiveMission(): Pair<MissionVersion, Mission>? {

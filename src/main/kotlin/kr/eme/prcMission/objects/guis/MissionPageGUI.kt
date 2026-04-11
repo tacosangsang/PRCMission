@@ -1,6 +1,7 @@
 package kr.eme.prcMission.objects.guis
 
 import kr.eme.prcMission.enums.MissionVersion
+import kr.eme.prcMission.managers.HudManager
 import kr.eme.prcMission.managers.MissionManager
 import kr.eme.prcMission.managers.MissionStateManager
 import kr.eme.prcMission.managers.RewardManager
@@ -178,6 +179,7 @@ class MissionPageGUI(
                     if (MissionStateManager.acceptFirst(version)) {
                         player.sendMessage("§e[미션 수락] ${mission.title}")
                         SoundUtil.click(player)
+                        HudManager.refreshAll()
 
                         setItem(
                             MISSION_SLOTS[0],
