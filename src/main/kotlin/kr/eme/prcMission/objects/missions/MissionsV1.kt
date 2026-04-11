@@ -15,7 +15,7 @@ object MissionsV1 {
             MS.m1_desc,
             CP.m1_cond,
             RP.m1_reward,
-            "§fEP 500"
+            "§f철 주괴 20개"
         ),
 
         Mission(
@@ -24,7 +24,7 @@ object MissionsV1 {
             MS.m2_desc,
             CP.m2_cond,
             RP.m2_reward,
-            "§fEP 500"
+            "§f철 주괴 15개"
         ),
 
         Mission(
@@ -33,7 +33,7 @@ object MissionsV1 {
             MS.m3_desc,
             CP.m3_cond,
             RP.m3_reward,
-            "§f철 주괴 20개"
+            "§f프린트 모듈 1개"
         ),
 
         Mission(
@@ -42,7 +42,7 @@ object MissionsV1 {
             MS.m4_desc,
             CP.m4_cond,
             RP.m4_reward,
-            "§f철 주괴 15개"
+            "§f철 주괴 5개, 알루미늄 주괴 10개"
         ),
 
         // Page 2 (5~8)
@@ -53,7 +53,7 @@ object MissionsV1 {
             MS.m5_desc,
             CP.m5_cond,
             RP.m5_reward,
-            "§f용광로 모듈 1개"
+            "§fEP 490"
         ),
 
         Mission(
@@ -62,7 +62,7 @@ object MissionsV1 {
             MS.m6_desc,
             CP.m6_cond,
             RP.m6_reward,
-            "§fEP 500"
+            "§f광산 모듈 1개"
         ),
 
         Mission(
@@ -71,7 +71,7 @@ object MissionsV1 {
             MS.m7_desc,
             CP.m7_cond,
             RP.m7_reward,
-            "§f철 주괴 레시피 1개"
+            "§fEP 800"
         ),
         Mission(
             8,
@@ -79,7 +79,7 @@ object MissionsV1 {
             MS.m8_desc,
             CP.m8_cond,
             RP.m8_reward,
-            "§fEP 750"
+            "§fEP 1000"
         ),
 
         // Page 3 (9~12)
@@ -89,7 +89,7 @@ object MissionsV1 {
             MS.m9_desc,
             CP.m9_cond,
             RP.m9_reward,
-            "§f알루미늄 주괴 3개, 철 주괴 5개"
+            "§f분쇄기 모듈 1개, 용광로 모듈 1개"
         ),
         Mission(
             10,
@@ -97,7 +97,7 @@ object MissionsV1 {
             MS.m10_desc,
             CP.m10_cond,
             RP.m10_reward,
-            "§f리튬 주괴 6개"
+            "§fEP 750"
         ),
         Mission(
             11,
@@ -105,7 +105,7 @@ object MissionsV1 {
             MS.m11_desc,
             CP.m11_cond,
             RP.m11_reward,
-            "§fEP 750"
+            "§f철 주괴 레시피 1개"
         ),
         Mission(
             12,
@@ -113,7 +113,7 @@ object MissionsV1 {
             MS.m12_desc,
             CP.m12_cond,
             RP.m12_reward,
-            "§f철 주괴 10개"
+            "§f철 주괴 5개, 구리 주괴 10개, 리튬 주괴 10개"
         ),
 
         // Page 4 (13~16)
@@ -123,7 +123,7 @@ object MissionsV1 {
             MS.m13_desc,
             CP.m13_cond,
             RP.m13_reward,
-            "§f철 주괴 20개"
+            "§f성장 캡슐 10개, 제초 캡슐 5개"
         ),
         Mission(
             14,
@@ -131,7 +131,7 @@ object MissionsV1 {
             MS.m14_desc,
             CP.m14_cond,
             RP.m14_reward,
-            "§fEP 1000"
+            "§f철 주괴 20개, 구리 주괴 20개"
         ),
         Mission(
             15,
@@ -139,7 +139,7 @@ object MissionsV1 {
             MS.m15_desc,
             CP.m15_cond,
             RP.m15_reward,
-            "§f커피잔 15개"
+            "§fEP 1500"
         ),
         Mission(
             16,
@@ -147,7 +147,7 @@ object MissionsV1 {
             MS.m16_desc,
             CP.m16_cond,
             RP.m16_reward,
-            "§fEP 1500"
+            "§f커피잔 10개"
         ),
 
         // Page 5 (17~20)
@@ -157,7 +157,7 @@ object MissionsV1 {
             MS.m17_desc,
             CP.m17_cond,
             RP.m17_reward,
-            "§f구리 주괴 15개, 리튬 주괴 7개"
+            "§f커피잔 10개"
         ),
         Mission(
             18,
@@ -165,7 +165,7 @@ object MissionsV1 {
             MS.m18_desc,
             CP.m18_cond,
             RP.m18_reward,
-            "§fEP 2500"
+            "§f구리 주괴 15개, 리튬 주괴 7개"
         ),
         Mission(
             19,
@@ -173,7 +173,7 @@ object MissionsV1 {
             MS.m19_desc,
             CP.m19_cond,
             RP.m19_reward,
-            "§f영양캡슐 16개, 성장캡슐 16개"
+            "§fEP 2500"
         ),
         Mission(
             20,

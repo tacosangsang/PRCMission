@@ -5,88 +5,70 @@ import kr.eme.prcMission.objects.items.ItemTemplates as IT
 
 object RewardPresetV1 {
     val m1_reward = Reward(
-        500
+        items = listOf(IT.ironIngot.copy(amount = 20))
     )
     val m2_reward = Reward(
-        500
+        items = listOf(IT.ironIngot.copy(amount = 15))
     )
     val m3_reward = Reward(
-        items = listOf(
-            IT.ironIngot.copy(amount = 20)
-        )
+        items = listOf(IT.printerModule.copy(amount = 1))
     )
     val m4_reward = Reward(
         items = listOf(
-            IT.ironIngot.copy(amount = 15)
+            IT.ironIngot.copy(amount = 5),
+            IT.aluminumIngot.copy(amount = 10)
         )
     )
-    val m5_reward = Reward(
+    val m5_reward = Reward(490)
+    val m6_reward = Reward(
+        items = listOf(IT.mineModule.copy(amount = 1))
+    )
+    val m7_reward = Reward(800)
+    val m8_reward = Reward(1000)
+    val m9_reward = Reward(
         items = listOf(
+            IT.grinderModule.copy(amount = 1),
             IT.furnaceModule.copy(amount = 1)
         )
     )
-    val m6_reward = Reward(
-        500
-    )
-    val m7_reward = Reward(
-        items = listOf(
-            IT.ironIngotRecipe.copy(amount = 1)
-        )
-    )
-    val m8_reward = Reward(
-        750
-    )
-    val m9_reward = Reward(
-        items = listOf(
-            IT.ironIngot.copy(amount = 5),
-            IT.aluminumIngot.copy(amount = 3)
-        )
-    )
-    val m10_reward = Reward(
-        items = listOf(
-            IT.lithiumIngot.copy(amount = 6)
-        )
-    )
+    val m10_reward = Reward(750)
     val m11_reward = Reward(
-        750
+        items = listOf(IT.ironIngotRecipe.copy(amount = 1))
     )
     val m12_reward = Reward(
         items = listOf(
-            IT.ironIngot.copy(amount = 10)
+            IT.ironIngot.copy(amount = 5),
+            IT.copperIngot.copy(amount = 10),
+            IT.lithiumIngot.copy(amount = 10)
         )
     )
     val m13_reward = Reward(
         items = listOf(
-            IT.ironIngot.copy(amount = 20)
+            IT.growthCapsule.copy(amount = 10),
+            IT.weedkillerCapsule.copy(amount = 5)
         )
     )
     val m14_reward = Reward(
-        1000
-    )
-    val m15_reward = Reward(
         items = listOf(
-            IT.mug.copy(amount = 15)
+            IT.ironIngot.copy(amount = 20),
+            IT.copperIngot.copy(amount = 20)
         )
     )
+    val m15_reward = Reward(1500)
     val m16_reward = Reward(
-        1500
+        items = listOf(IT.mug.copy(amount = 10))
     )
     val m17_reward = Reward(
+        items = listOf(
+            IT.mug.copy(amount = 10)
+        )
+    )
+    val m18_reward = Reward(
         items = listOf(
             IT.copperIngot.copy(amount = 15),
             IT.lithiumIngot.copy(amount = 7)
         )
     )
-    val m18_reward = Reward(
-        2500
-    )
-    val m19_reward = Reward(
-        items = listOf(
-            IT.nutrientCapsule.copy(amount = 16),
-            IT.growthCapsule.copy(amount = 16)
-        )
-    )
-    val m20_reward = Reward(
-        5000
-    )
+    val m19_reward = Reward(2500)
+    val m20_reward = Reward(5000)
 }

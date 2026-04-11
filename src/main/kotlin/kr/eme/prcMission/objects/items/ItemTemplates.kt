@@ -23,7 +23,16 @@ object ItemTemplates {
 
     // module
     val furnaceModule = IR(PRCItems.FURNACE_MODULE)
+    val grinderModule = IR(PRCItems.GRINDER_MODULE)
+    val printerModule = IR(PRCItems.PRINTER_MODULE)
     val coffeeModule = IR(PRCItems.COFFEE_MACHINE_MODULE)
+    val mineModule = IR(PRCItems.MINE_MODULE)
+
+    // armor
+    val ironHelmet = IR(PRCItems.IRON_HELMET)
+    val ironChestplate = IR(PRCItems.IRON_CHESTPLATE)
+    val ironLeggings = IR(PRCItems.IRON_LEGGINGS)
+    val ironBoots = IR(PRCItems.IRON_BOOTS)
 
     // recipe
     val ironIngotRecipe = IR(PRCItems.RECIPE_IRON_INGOT)
@@ -32,6 +41,7 @@ object ItemTemplates {
 
     // upgrade / parts
     val alloyGear = IR(PRCItems.ALLOY_GEAR_AL_CU)
+    val alloyDrill = IR(PRCItems.ALLOY_DRILL_TI_PT_AU)
     val alloyCoolingMold = IR(PRCItems.ALLOY_COOLING_MOLD_CU_AU)
 
     // other

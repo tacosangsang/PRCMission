@@ -99,8 +99,8 @@ object MissionProgressListener : Listener {
      */
     // 버전-미션ID별 EP 마일스톤 기준값
     private val epMilestoneThresholds = mapOf(
-        (MissionVersion.V1 to 20) to 25_000,
-        (MissionVersion.V2 to 12) to 60_000,
+        (MissionVersion.V1 to 20) to 50_000,
+        (MissionVersion.V2 to 13) to 100_000,
         (MissionVersion.V2 to 20) to 200_000
     )
 
