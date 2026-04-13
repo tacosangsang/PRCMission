@@ -89,7 +89,7 @@ object MissionsV1 {
             MS.m9_desc,
             CP.m9_cond,
             RP.m9_reward,
-            "§f분쇄기 모듈 1개, 용광로 모듈 1개"
+            "§f분쇄기 모듈 2개, 용광로 모듈 1개"
         ),
         Mission(
             10,
@@ -157,7 +157,7 @@ object MissionsV1 {
             MS.m17_desc,
             CP.m17_cond,
             RP.m17_reward,
-            "§f커피잔 10개"
+            "§f커피 씨앗 6개, 커피잔 10개, 성장 캡슐 3개, 영양 캡슐 3개"
         ),
         Mission(
             18,

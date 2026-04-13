@@ -27,7 +27,7 @@ object RewardPresetV1 {
     val m8_reward = Reward(1000)
     val m9_reward = Reward(
         items = listOf(
-            IT.grinderModule.copy(amount = 1),
+            IT.grinderModule.copy(amount = 2),
             IT.furnaceModule.copy(amount = 1)
         )
     )
@@ -60,7 +60,10 @@ object RewardPresetV1 {
     )
     val m17_reward = Reward(
         items = listOf(
-            IT.mug.copy(amount = 10)
+            IT.coffeeBeanSeed.copy(amount = 6),
+            IT.mug.copy(amount = 10),
+            IT.growthCapsule.copy(amount = 3),
+            IT.nutrientCapsule.copy(amount = 3)
         )
     )
     val m18_reward = Reward(

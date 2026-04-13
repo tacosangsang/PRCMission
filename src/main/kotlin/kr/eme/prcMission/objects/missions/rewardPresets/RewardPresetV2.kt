@@ -32,6 +32,10 @@ object RewardPresetV2 {
     val m6_reward = Reward(7000)
     val m7_reward = Reward(
         items = listOf(
+            IT.coffeeBeanSeed.copy(amount = 32),
+            IT.mug.copy(amount = 16),
+            IT.growthCapsule.copy(amount = 16),
+            IT.nutrientCapsule.copy(amount = 16),
             IT.ironHelmet.copy(amount = 1),
             IT.ironChestplate.copy(amount = 1),
             IT.ironLeggings.copy(amount = 1),

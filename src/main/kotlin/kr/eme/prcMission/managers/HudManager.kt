@@ -2,7 +2,6 @@ package kr.eme.prcMission.managers
 
 import io.papermc.paper.scoreboard.numbers.NumberFormat
 import kr.eme.prcMission.enums.MissionVersion
-import kr.eme.prcMission.main
 import kr.eme.prcMission.objects.models.Mission
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
@@ -13,7 +12,7 @@ import org.bukkit.entity.Player
 import org.bukkit.scoreboard.Criteria
 import org.bukkit.scoreboard.DisplaySlot
 import org.bukkit.scoreboard.Scoreboard
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
 object HudManager {
@@ -23,14 +22,30 @@ object HudManager {
 
     private val TITLE = Component.text("미션 트래커", TextColor.color(255, 215, 0), TextDecoration.BOLD)
 
-    private val LABEL_COLOR = TextColor.color(180, 200, 255)
-    private val MISSION_COLOR = NamedTextColor.WHITE
-    private val PROGRESS_COLOR = TextColor.color(180, 230, 180)
-    private val DONE_COLOR = TextColor.color(120, 230, 120)
-    private val UNDONE_COLOR = TextColor.color(230, 120, 120)
-    private val REWARD_COLOR = TextColor.color(255, 220, 130)
-    private val HINT_COLOR = TextColor.color(140, 140, 140)
-    private val SEP_COLOR = TextColor.color(80, 80, 80)
+    // 색상 팔레트
+    private val COLOR_BLUE   = TextColor.color(0x86, 0xD6, 0xDF)  // #86d6df
+    private val COLOR_RED    = TextColor.color(0xE3, 0x38, 0x29)  // #e33829
+    private val COLOR_GRAY   = TextColor.color(0xD5, 0xD5, 0xD5)  // #d5d5d5
+    private val COLOR_PURPLE = TextColor.color(0xD6, 0xAA, 0xFF)  // #d6aaff
+    private val COLOR_GOLD   = TextColor.color(255, 215, 0)
+    private val COLOR_WHITE  = NamedTextColor.WHITE
+    private val COLOR_HINT   = TextColor.color(140, 140, 140)
+    private val COLOR_DONE   = TextColor.color(120, 230, 120)
+
+    // 고정 줄 수 (V2 m7 출입모듈 설치 - 보상 5개 기준)
+    private const val FIXED_LINES = 11
+
+    // 버전별 보상 아이콘
+    private fun rewardIcon(version: MissionVersion): String = when (version) {
+        MissionVersion.V1 -> "\u3406"
+        MissionVersion.V2 -> "\u3405"
+    }
+
+    // 버전 표시명
+    private fun versionLabel(version: MissionVersion): String = when (version) {
+        MissionVersion.V1 -> "0.1v"
+        MissionVersion.V2 -> "0.2v"
+    }
 
     fun start() {
         for (player in Bukkit.getOnlinePlayers()) update(player)
@@ -62,7 +77,7 @@ object HudManager {
             if (!MissionStateManager.canStart(version)) continue
             if (MissionStateManager.isVersionCleared(version)) continue
             val idx = MissionStateManager.getCurrentIndex(version)
-            if (idx < 0) continue // 미션 수락 전에는 표시하지 않음
+            if (idx < 0) continue
             val mission = MissionManager.getCurrent(version, idx) ?: continue
             return version to mission
         }
@@ -72,7 +87,6 @@ object HudManager {
     private fun update(player: Player) {
         val active = resolveActiveMission()
         if (active == null) {
-            // 진행 중인 미션 없음 → 사이드바 숨김
             if (playerBoards.remove(player.uniqueId) != null) {
                 player.scoreboard = Bukkit.getScoreboardManager().newScoreboard
             }
@@ -110,47 +124,66 @@ object HudManager {
         val progress = MissionStateManager.getProgress(version, mission.id)
         val cond = mission.condition
 
-        val lines = mutableListOf<Component>()
-        lines += Component.empty()
-        lines += Component.text("[${version.name}] ", LABEL_COLOR)
-            .append(Component.text(mission.title, MISSION_COLOR))
-        lines += Component.empty()
+        val content = mutableListOf<Component>()
 
+        // 상단 장식 아이콘
+        content += Component.text("\u3450", COLOR_WHITE)
+
+        // 제목: [0.1v] 미션 제목
+        content += Component.text("[${versionLabel(version)}] ", COLOR_BLUE)
+            .append(Component.text(mission.title, COLOR_WHITE))
+
+        // 빈 줄
+        content += Component.empty()
+
+        // 진행도 섹션
+        val beforeSize = content.size
         if (cond.goal != null) {
-            // 누적형: 진행도 표시
-            val goal = cond.goal!!
+            val goal = cond.goal
             val cur = progress.progressCount.coerceAtMost(goal)
-            lines += Component.text("진행도 ", LABEL_COLOR)
-                .append(Component.text("$cur / $goal", PROGRESS_COLOR))
+            content += Component.text("진행도 ", COLOR_GRAY)
+                .append(Component.text("$cur / $goal", COLOR_PURPLE))
         } else {
-            // 체크리스트형: 각 조건별 V/X
             cond.values.forEach { v ->
                 val desc = cond.descriptions[v] ?: return@forEach
                 val done = progress.completedConditions.contains(v)
                 val mark = if (done) "✔ " else "✘ "
-                val color = if (done) DONE_COLOR else UNDONE_COLOR
-                lines += Component.text(mark + desc, color)
+                val color = if (done) COLOR_DONE else COLOR_RED
+                content += Component.text(mark + desc, color)
             }
         }
 
-        lines += buildRewardLines(mission)
+        // 진행도가 있을 때만 빈 줄 추가 (없으면 제목 아래 빈 줄 1개로 충분)
+        if (content.size > beforeSize) {
+            content += Component.empty()
+        }
 
-        lines += Component.empty()
-        lines += Component.text("통신 모듈에서 진행상황 확인 가능", HINT_COLOR)
-        return lines
+        // 보상 섹션
+        content += buildRewardLines(version, mission)
+
+        // 힌트 (항상 맨 아래)
+        val hintLine = Component.text("통신 모듈에서 진행 현황/팁 확인 가능", COLOR_HINT)
+
+        // 패딩: 보상 아래 ~ 힌트 사이를 빈 줄로 채워서 고정 크기 유지
+        val currentSize = content.size + 1 // +1 for hint line
+        val padding = (FIXED_LINES - currentSize).coerceAtLeast(1)
+        repeat(padding) { content += Component.empty() }
+
+        content += hintLine
+        return content
     }
 
-    private fun buildRewardLines(mission: Mission): List<Component> {
+    private fun buildRewardLines(version: MissionVersion, mission: Mission): List<Component> {
         val raw = mission.rewardDescription.takeIf { it.isNotBlank() }
             ?: if (mission.reward.ep > 0) "${mission.reward.ep} EP" else return emptyList()
         val parts = raw.split(",").map { stripColors(it) }.filter { it.isNotBlank() }
         if (parts.isEmpty()) return emptyList()
 
         val result = mutableListOf<Component>()
-        result += Component.text("보상", LABEL_COLOR)
+        result += Component.text(rewardIcon(version), COLOR_GOLD)
         parts.forEach { part ->
-            result += Component.text(" • ", LABEL_COLOR)
-                .append(Component.text(part, REWARD_COLOR))
+            result += Component.text("- ", COLOR_GRAY)
+                .append(Component.text(part, COLOR_GOLD))
         }
         return result
     }
@@ -158,7 +191,6 @@ object HudManager {
     private fun stripColors(s: String): String =
         s.replace(Regex("§[0-9a-fk-orA-FK-OR]"), "").trim()
 
-    // 각 entry 를 unique 하게 만들기 위한 invisible prefix
     private fun invisibleEntry(index: Int): String {
         val hex = "0123456789abcdef"
         return "§${hex[index % 16]}§r"

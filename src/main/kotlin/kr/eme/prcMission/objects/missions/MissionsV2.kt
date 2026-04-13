@@ -62,7 +62,7 @@ object MissionsV2 {
             MS.m7_desc,
             CP.m7_cond,
             RP.m7_reward,
-            "§f합금 섬유 우주복(풀세트)"
+            "§f커피 씨앗 32개, 커피잔 16개, 성장 캡슐 16개, 영양 캡슐 16개, 합금 섬유 우주복(풀세트)"
         ),
         Mission(
             8,

@@ -45,6 +45,7 @@ object ItemTemplates {
     val alloyCoolingMold = IR(PRCItems.ALLOY_COOLING_MOLD_CU_AU)
 
     // other
+    val coffeeBeanSeed = IR(PRCItems.COFFEE_BEAN_SEED)
     val mug = IR(PRCItems.MUG)
     val nutrientCapsule = IR(PRCItems.NUTRITION_CAPSULE)
     val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
