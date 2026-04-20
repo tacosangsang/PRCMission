@@ -77,10 +77,13 @@ object MissionProgressListener : Listener {
                 // 최대값 갱신형: 값이 변하지 않았으면 피드백 생략
                 if (cond.useMaxValue && progress.progressCount > e.value) return
 
-                // 누적형 중간 피드백
-                Bukkit.broadcastMessage(
-                    "§7[${version.name}] ${currentMission.title} 진행도: ${progress.progressCount} / ${cond.goal}"
-                )
+                // 누적형 중간 피드백 (목표에 따라 5 또는 10 단위로 알림)
+                val interval = if (cond.goal >= 100) 10 else 5
+                if (progress.progressCount % interval == 0) {
+                    Bukkit.broadcastMessage(
+                        "§7[${version.name}] ${currentMission.title} 진행도: ${progress.progressCount} / ${cond.goal}"
+                    )
+                }
             } else {
                 // 체크리스트형 중간 피드백 (방금 완료된 행위 표시)
                 val justCompleted = e.value
