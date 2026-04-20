@@ -20,7 +20,7 @@ object HudManager {
 
     private const val OBJECTIVE_NAME = "prc_mission_hud"
 
-    private val TITLE = Component.text("미션 트래커", TextColor.color(255, 215, 0), TextDecoration.BOLD)
+    private val TITLE = Component.empty()
 
     // 색상 팔레트
     private val COLOR_BLUE   = TextColor.color(0x86, 0xD6, 0xDF)  // #86d6df
@@ -35,16 +35,22 @@ object HudManager {
     // 고정 줄 수 (V2 m7 출입모듈 설치 - 보상 5개 기준)
     private const val FIXED_LINES = 11
 
+    // 버전별 상단 장식 아이콘
+    private fun headerIcon(version: MissionVersion): String = when (version) {
+        MissionVersion.V1 -> "\u342F\u3450"
+        MissionVersion.V2 -> "\u342F\u3451"
+    }
+
     // 버전별 보상 아이콘
     private fun rewardIcon(version: MissionVersion): String = when (version) {
         MissionVersion.V1 -> "\u3406"
         MissionVersion.V2 -> "\u3405"
     }
 
-    // 버전 표시명
-    private fun versionLabel(version: MissionVersion): String = when (version) {
-        MissionVersion.V1 -> "0.1v"
-        MissionVersion.V2 -> "0.2v"
+    // 버전별 진행도 색상
+    private fun progressColor(version: MissionVersion): TextColor = when (version) {
+        MissionVersion.V1 -> COLOR_BLUE    // #86d6df
+        MissionVersion.V2 -> COLOR_PURPLE  // #d6aaff
     }
 
     fun start() {
@@ -126,12 +132,11 @@ object HudManager {
 
         val content = mutableListOf<Component>()
 
-        // 상단 장식 아이콘
-        content += Component.text("\u3450", COLOR_WHITE)
+        // 상단 장식 아이콘 (V1: \u342F\u3450, V2: \u342F\u3451)
+        content += Component.text(headerIcon(version), COLOR_WHITE)
 
-        // 제목: [0.1v] 미션 제목
-        content += Component.text("[${versionLabel(version)}] ", COLOR_BLUE)
-            .append(Component.text(mission.title, COLOR_WHITE))
+        // 제목
+        content += Component.text(mission.title, COLOR_WHITE)
 
         // 빈 줄
         content += Component.empty()
@@ -142,7 +147,7 @@ object HudManager {
             val goal = cond.goal
             val cur = progress.progressCount.coerceAtMost(goal)
             content += Component.text("진행도 ", COLOR_GRAY)
-                .append(Component.text("$cur / $goal", COLOR_PURPLE))
+                .append(Component.text("$cur / $goal", progressColor(version)))
         } else {
             cond.values.forEach { v ->
                 val desc = cond.descriptions[v] ?: return@forEach
@@ -162,7 +167,7 @@ object HudManager {
         content += buildRewardLines(version, mission)
 
         // 힌트 (항상 맨 아래)
-        val hintLine = Component.text("통신 모듈에서 진행 현황/팁 확인 가능", COLOR_HINT)
+        val hintLine = Component.text("통신 모듈에서 자세한 내용/팁 확인 가능", COLOR_RED)
 
         // 패딩: 보상 아래 ~ 힌트 사이를 빈 줄로 채워서 고정 크기 유지
         val currentSize = content.size + 1 // +1 for hint line
