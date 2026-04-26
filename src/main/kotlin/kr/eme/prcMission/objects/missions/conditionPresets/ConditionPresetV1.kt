@@ -10,7 +10,7 @@ object ConditionPresetV1 {
     val m3_cond = C(MT.MODULE_PLACE, MTA.STORAGE_MODULE, listOf(1))
     val m4_cond = C(MT.MODULE_PLACE, MTA.PRINTER_MODULE, listOf(1))
     val m5_cond = C(MT.CRAFTING, MTA.CRAFTING, listOf(1, 2), mapOf(1 to "단단한 괭이 제작", 2 to "소형 물뿌리개 제작"))
-    val m6_cond = C(MT.FARMING, MTA.FARMING_MODULE, listOf(1))
+    val m6_cond = C(MT.FARMING, MTA.FARMING_MODULE, listOf(1, 2), mapOf(1 to "씨앗 심기", 2 to "물 공급"))
     val m7_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 2, useMaxValue = true)
     val m8_cond = C(MT.TRADE, MTA.TRADE_MODULE, listOf(1))
     val m9_cond = C(MT.MODULE_PLACE, MTA.STORAGE_MODULE, listOf(1, 2), mapOf(1 to "분쇄기 모듈 설치", 2 to "용광로 모듈 설치"))

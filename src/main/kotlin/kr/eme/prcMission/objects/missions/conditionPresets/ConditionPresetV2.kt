@@ -6,7 +6,7 @@ import kr.eme.prcMission.objects.models.Condition as C
 
 object ConditionPresetV2 {
     val m1_cond = C(MT.MODULE_PLACE, MTA.CROSS_EXTENSION, listOf(1))
-    val m2_cond = C(MT.TRADE, MTA.TRADE_CROP_MODULE, listOf(1), goal = 250)
+    val m2_cond = C(MT.TRADE, MTA.TRADE_CROP_MODULE, listOf(1), goal = 70)
     val m3_cond = C(MT.MODULE_UPGRADE, MTA.FURNACE_PROCESS, listOf(1))
     val m4_cond = C(MT.CRAFTING, MTA.CRAFTING, listOf(1))
     val m5_cond = C(MT.MODULE_UPGRADE, MTA.CRUSHER_PROCESS, listOf(1))
@@ -22,7 +22,7 @@ object ConditionPresetV2 {
     val m15_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 500)
     val m16_cond = C(MT.MODULE_PLACE, MTA.FARMING_MODULE, listOf(1))
     val m17_cond = C(MT.PLAYER_PROGRESS, MTA.FARMING_MODULE, listOf(1), goal = 300)
-    val m18_cond = C(MT.TRADE, MTA.TRADE_CROP_MODULE, listOf(1), goal = 500)
+    val m18_cond = C(MT.TRADE, MTA.TRADE_CROP_MODULE, listOf(1), goal = 150)
     val m19_cond = C(MT.CRAFTING, MTA.PRINTER_MODULE, listOf(1))
     val m20_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
 }

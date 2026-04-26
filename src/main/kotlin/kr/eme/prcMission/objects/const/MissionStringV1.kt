@@ -16,8 +16,8 @@ object MissionStringV1 {
     const val m5_title = "농사 도구 제작"
     const val m5_desc = "단단한 괭이와 소형 물뿌리개를 제작하세요."
 
-    const val m6_title = "물 공급"
-    const val m6_desc = "농사 모듈에 씨앗을 심은 뒤 물뿌리개를 이용하여 물을 공급하세요."
+    const val m6_title = "농사 시작"
+    const val m6_desc = "농사 모듈에 씨앗을 심은 뒤, 물뿌리개를 이용하여 물을 공급하세요."
 
     const val m7_title = "광산 탐험"
     const val m7_desc = "광산을 2층까지 내려가세요."

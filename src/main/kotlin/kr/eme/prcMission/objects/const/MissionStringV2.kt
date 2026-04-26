@@ -4,8 +4,8 @@ object MissionStringV2 {
     const val m1_title = "십자 연장 모듈 설치"
     const val m1_desc = "십자 연장 모듈을 원하는 곳에 증설하세요."
 
-    const val m2_title = "작물 판매"
-    const val m2_desc = "작물을 250개 이상 판매하세요."
+    const val m2_title = "작물 심기"
+    const val m2_desc = "작물을 70개 이상 심으세요."
 
     const val m3_title = "용광로 업그레이드"
     const val m3_desc = "용광로 용해 슬롯 확장을 구매하여 모듈을 업그레이드 하세요."
@@ -52,8 +52,8 @@ object MissionStringV2 {
     const val m17_title = "경작지 경작"
     const val m17_desc = "농사 모듈에서 경작지를 총 300번 경작하세요."
 
-    const val m18_title = "작물 판매-2"
-    const val m18_desc = "작물을 500개 판매하세요."
+    const val m18_title = "작물 판매"
+    const val m18_desc = "작물을 150개 판매하세요."
 
     const val m19_title = "무거운 채굴기 제작"
     const val m19_desc = "프린트 모듈에서 무거운 채굴기를 제작하세요."
