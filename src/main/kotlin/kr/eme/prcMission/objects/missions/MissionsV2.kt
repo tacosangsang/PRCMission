@@ -8,165 +8,45 @@ import kr.eme.prcMission.objects.missions.rewardPresets.RewardPresetV2 as RP
 
 object MissionsV2 {
     val missions: List<Mission> = listOf (
-        Mission(
-            1,
-            MS.m1_title,
-            MS.m1_desc,
-            CP.m1_cond,
-            RP.m1_reward,
-            "§f철 주괴 20개, 구리 주괴 20개"
-        ),
-        Mission(
-            2,
-            MS.m2_title,
-            MS.m2_desc,
-            CP.m2_cond,
-            RP.m2_reward,
-            "§f영양캡슐 16개, 성장캡슐 16개, 제초캡슐 10개"
-        ),
-        Mission(
-            3,
-            MS.m3_title,
-            MS.m3_desc,
-            CP.m3_cond,
-            RP.m3_reward,
-            "§fAl-Cu 합금 레시피, Al-Mg 합금 레시피"
-        ),
-        Mission(
-            4,
-            MS.m4_title,
-            MS.m4_desc,
-            CP.m4_cond,
-            RP.m4_reward,
-            "§fAl-Cu 합금 주괴 10개"
-        ),
-        Mission(
-            5,
-            MS.m5_title,
-            MS.m5_desc,
-            CP.m5_cond,
-            RP.m5_reward,
-            "§fCu-Au 합금 주괴 10개"
-        ),
-        Mission(
-            6,
-            MS.m6_title,
-            MS.m6_desc,
-            CP.m6_cond,
-            RP.m6_reward,
-            "§fEP 7000"
-        ),
-        Mission(
-            7,
-            MS.m7_title,
-            MS.m7_desc,
-            CP.m7_cond,
-            RP.m7_reward,
-            "§f커피 씨앗 32개, 커피잔 16개, 성장 캡슐 16개, 영양 캡슐 16개, 합금 섬유 우주복(풀세트)"
-        ),
-        Mission(
-            8,
-            MS.m8_title,
-            MS.m8_desc,
-            CP.m8_cond,
-            RP.m8_reward,
-            "§fEP 4000"
-        ),
-        Mission(
-            9,
-            MS.m9_title,
-            MS.m9_desc,
-            CP.m9_cond,
-            RP.m9_reward,
-            "§f구리 주괴 10개, 백금 주괴 3개"
-        ),
-        Mission(
-            10,
-            MS.m10_title,
-            MS.m10_desc,
-            CP.m10_cond,
-            RP.m10_reward,
-            "§fEP 5000"
-        ),
-        Mission(
-            11,
-            MS.m11_title,
-            MS.m11_desc,
-            CP.m11_cond,
-            RP.m11_reward,
-            "§f철 주괴 35개"
-        ),
-        Mission(
-            12,
-            MS.m12_title,
-            MS.m12_desc,
-            CP.m12_cond,
-            RP.m12_reward,
-            "§f커피머신 모듈 2개, Ti-Pt-Au 합금 드릴, Cu-Au 합금 냉각 몰드"
-        ),
-        Mission(
-            13,
-            MS.m13_title,
-            MS.m13_desc,
-            CP.m13_cond,
-            RP.m13_reward,
-            "§fEP 6500"
-        ),
-        Mission(
-            14,
-            MS.m14_title,
-            MS.m14_desc,
-            CP.m14_cond,
-            RP.m14_reward,
-            "§f구리 주괴 20개, 리튬 주괴 16개, 백금 주괴 10개"
-        ),
-        Mission(
-            15,
-            MS.m15_title,
-            MS.m15_desc,
-            CP.m15_cond,
-            RP.m15_reward,
-            "§f철 주괴 20개, 티타늄 주괴 3개"
-        ),
-        Mission(
-            16,
-            MS.m16_title,
-            MS.m16_desc,
-            CP.m16_cond,
-            RP.m16_reward,
-            "§fEP 5000"
-        ),
-        Mission(
-            17,
-            MS.m17_title,
-            MS.m17_desc,
-            CP.m17_cond,
-            RP.m17_reward,
-            "§fEP 6000"
-        ),
-        Mission(
-            18,
-            MS.m18_title,
-            MS.m18_desc,
-            CP.m18_cond,
-            RP.m18_reward,
-            "§f백금 주괴 5개, 니켈 주괴 5개, 티타늄 주괴 3개"
-        ),
-        Mission(
-            19,
-            MS.m19_title,
-            MS.m19_desc,
-            CP.m19_cond,
-            RP.m19_reward,
-            "§fEP 6500"
-        ),
-        Mission(
-            20,
-            MS.m20_title,
-            MS.m20_desc,
-            CP.m20_cond,
-            RP.m20_reward,
-            "§7???"
-        )
+        Mission(1, MS.m1_title, MS.m1_desc, CP.m1_cond, RP.m1_reward,
+            "§f철 주괴 20개, 구리 주괴 20개", "빌드형 모듈"),
+        Mission(2, MS.m2_title, MS.m2_desc, CP.m2_cond, RP.m2_reward,
+            "§f영양캡슐 16개, 성장캡슐 16개, 제초캡슐 10개", "작물/농사"),
+        Mission(3, MS.m3_title, MS.m3_desc, CP.m3_cond, RP.m3_reward,
+            "§fAl-Cu 합금 레시피, Al-Mg 합금 레시피", "설치형 모듈"),
+        Mission(4, MS.m4_title, MS.m4_desc, CP.m4_cond, RP.m4_reward,
+            "§fAl-Cu 합금 주괴 10개", "설치형 모듈"),
+        Mission(5, MS.m5_title, MS.m5_desc, CP.m5_cond, RP.m5_reward,
+            "§fCu-Au 합금 주괴 10개", "설치형 모듈"),
+        Mission(6, MS.m6_title, MS.m6_desc, CP.m6_cond, RP.m6_reward,
+            "§fEP 7000", "설치형 모듈"),
+        Mission(7, MS.m7_title, MS.m7_desc, CP.m7_cond, RP.m7_reward,
+            "§f커피 씨앗 32개, 커피잔 16개, 성장 캡슐 16개, 영양 캡슐 16개, 합금 섬유 우주복(풀세트)", "빌드형 모듈"),
+        Mission(8, MS.m8_title, MS.m8_desc, CP.m8_cond, RP.m8_reward,
+            "§fEP 4000", "탐사"),
+        Mission(9, MS.m9_title, MS.m9_desc, CP.m9_cond, RP.m9_reward,
+            "§f구리 주괴 10개, 백금 주괴 3개", "홈 모듈"),
+        Mission(10, MS.m10_title, MS.m10_desc, CP.m10_cond, RP.m10_reward,
+            "§fEP 5000", "설치형 모듈"),
+        Mission(11, MS.m11_title, MS.m11_desc, CP.m11_cond, RP.m11_reward,
+            "§f철 주괴 35개", "광산/광물"),
+        Mission(12, MS.m12_title, MS.m12_desc, CP.m12_cond, RP.m12_reward,
+            "§f커피머신 모듈 2개, Ti-Pt-Au 합금 드릴, Cu-Au 합금 냉각 몰드", "빌드형 모듈"),
+        Mission(13, MS.m13_title, MS.m13_desc, CP.m13_cond, RP.m13_reward,
+            "§fEP 6500", "홈 모듈"),
+        Mission(14, MS.m14_title, MS.m14_desc, CP.m14_cond, RP.m14_reward,
+            "§f구리 주괴 20개, 리튬 주괴 16개, 백금 주괴 10개", "광산/광물"),
+        Mission(15, MS.m15_title, MS.m15_desc, CP.m15_cond, RP.m15_reward,
+            "§f철 주괴 20개, 티타늄 주괴 3개", "광산/광물"),
+        Mission(16, MS.m16_title, MS.m16_desc, CP.m16_cond, RP.m16_reward,
+            "§fEP 5000", "빌드형 모듈"),
+        Mission(17, MS.m17_title, MS.m17_desc, CP.m17_cond, RP.m17_reward,
+            "§fEP 6000", "작물/농사"),
+        Mission(18, MS.m18_title, MS.m18_desc, CP.m18_cond, RP.m18_reward,
+            "§f백금 주괴 5개, 니켈 주괴 5개, 티타늄 주괴 3개", "홈 모듈"),
+        Mission(19, MS.m19_title, MS.m19_desc, CP.m19_cond, RP.m19_reward,
+            "§fEP 6500", "설치형 모듈"),
+        Mission(20, MS.m20_title, MS.m20_desc, CP.m20_cond, RP.m20_reward,
+            "§7???", "홈 모듈")
     )
 }

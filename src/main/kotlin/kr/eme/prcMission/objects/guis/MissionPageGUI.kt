@@ -68,12 +68,12 @@ class MissionPageGUI(
                     if (MissionStateManager.isRewardClaimed(version, mission.id)) {
                         ItemStackUtil.iconDone(
                             "§f${mission.title}", version,
-                            mission.description, mission.rewardDescription
+                            mission.description, mission.rewardDescription, mission.tutorialLink
                         )
                     } else {
                         ItemStackUtil.iconRewardPending(
                             "§f${mission.title}", version,
-                            mission.description, mission.rewardDescription
+                            mission.description, mission.rewardDescription, mission.tutorialLink
                         )
                     }
                 }
@@ -82,7 +82,7 @@ class MissionPageGUI(
                 global == curIndex -> {
                     val item = ItemStackUtil.iconProgress(
                         "§f${mission.title}", version,
-                        mission.description, mission.rewardDescription
+                        mission.description, mission.rewardDescription, mission.tutorialLink
                     )
 
                     // ✅ 진행도 정보 붙이기
@@ -126,12 +126,12 @@ class MissionPageGUI(
                         else if (curIndex == -1 && global == 0) {
                             ItemStackUtil.iconAcceptable(
                                 "§f${mission.title}", version,
-                                mission.description, mission.rewardDescription
+                                mission.description, mission.rewardDescription, mission.tutorialLink
                             )
                         } else {
                             ItemStackUtil.iconLock(
                                 "§f${mission.title}", version,
-                                mission.description, mission.rewardDescription
+                                mission.description, mission.rewardDescription, mission.tutorialLink
                             )
                         }
                     }

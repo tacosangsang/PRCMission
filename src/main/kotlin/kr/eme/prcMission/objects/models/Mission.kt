@@ -6,5 +6,6 @@ data class Mission(
     val description: String,
     val condition: Condition,
     val reward: Reward,
-    val rewardDescription: String = ""
+    val rewardDescription: String = "",
+    val tutorialLink: String = ""
 )
