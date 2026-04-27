@@ -33,8 +33,8 @@ object HudManager {
     private val COLOR_HINT   = TextColor.color(140, 140, 140)
     private val COLOR_DONE   = TextColor.color(120, 230, 120)
 
-    // 고정 줄 수 (V2 m7 출입모듈 설치 - 보상 5개 기준)
-    private const val FIXED_LINES = 11
+    // 고정 줄 수 (V2 m7 출입모듈 설치 - 보상 5개 + EP/힌트 포함 기준)
+    private const val FIXED_LINES = 13
 
     // 버전별 상단 장식 아이콘
     private fun headerIcon(version: MissionVersion): String = when (version) {
