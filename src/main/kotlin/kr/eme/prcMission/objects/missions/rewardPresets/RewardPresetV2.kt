@@ -29,7 +29,9 @@ object RewardPresetV2 {
     val m5_reward = Reward(
         items = listOf(IT.CUAUIngot.copy(amount = 10))
     )
-    val m6_reward = Reward(7000)
+    val m6_reward = Reward(
+        items = listOf(IT.gateModule.copy(amount = 1))
+    )
     val m7_reward = Reward(
         items = listOf(
             IT.coffeeBeanSeed.copy(amount = 32),
