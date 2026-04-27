@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "kr.eme.prcMission"
-version = "1.0.13"
+version = "1.0.14"
 
 repositories {
     mavenCentral()
@@ -30,10 +30,14 @@ java {
 
 tasks.jar {
     archiveFileName = "${project.name}-${project.version}.jar"
-    destinationDirectory = file("C:\\Users\\Home\\Desktop")
     manifest {
-        attributes["Main-Class" ] = "kr.eme.prcMission.PRCMission"
+        attributes["Main-Class"] = "kr.eme.prcMission.PRCMission"
     }
+}
+
+tasks.register<Copy>("copyToDesktop") {
+    from(tasks.jar)
+    into(File(System.getProperty("user.home"), "Desktop"))
 }
 
 publishing {
