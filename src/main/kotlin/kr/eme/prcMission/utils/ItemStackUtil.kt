@@ -66,6 +66,7 @@ object ItemStackUtil {
             if (tutorialLink.isNotBlank()) {
                 add("${TIP_COLOR}홈 모듈에 배치된 가상훈련 모듈에서 [$tutorialLink]을 참고하세요.")
             }
+            add(" ")
             add(status)
         }
         meta.setCustomModelData(customModel)

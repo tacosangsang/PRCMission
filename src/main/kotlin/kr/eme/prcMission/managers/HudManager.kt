@@ -3,6 +3,7 @@ package kr.eme.prcMission.managers
 import io.papermc.paper.scoreboard.numbers.NumberFormat
 import kr.eme.prcMission.enums.MissionVersion
 import kr.eme.prcMission.objects.models.Mission
+import kr.eme.prcMoney.managers.MoneyManager
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import net.kyori.adventure.text.format.TextColor
@@ -166,14 +167,20 @@ object HudManager {
         // 보상 섹션
         content += buildRewardLines(version, mission)
 
-        // 힌트 (항상 맨 아래)
+        // 힌트 (항상 맨 아래) + 그 위에 EP 표시
+        val epLine = Component.text("보유 EP ", COLOR_GRAY)
+            .append(Component.text("${MoneyManager.getMoney()}", COLOR_GOLD))
         val hintLine = Component.text("통신 모듈에서 자세한 내용/팁 확인 가능", COLOR_RED)
 
-        // 패딩: 보상 아래 ~ 힌트 사이를 빈 줄로 채워서 고정 크기 유지
-        val currentSize = content.size + 1 // +1 for hint line
+        // 패딩: 보상 아래 ~ EP 줄 사이를 빈 줄로 채워서 고정 크기 유지
+        // 하단 고정: [패딩...] + EP + 빈 줄 + 힌트 (총 3줄 추가)
+        val bottomFixedLines = 3
+        val currentSize = content.size + bottomFixedLines
         val padding = (FIXED_LINES - currentSize).coerceAtLeast(1)
         repeat(padding) { content += Component.empty() }
 
+        content += epLine
+        content += Component.empty()
         content += hintLine
         return content
     }
