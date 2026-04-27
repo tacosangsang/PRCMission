@@ -27,6 +27,8 @@ object ItemTemplates {
     val printerModule = IR(PRCItems.PRINTER_MODULE)
     val coffeeModule = IR(PRCItems.COFFEE_MACHINE_MODULE)
     val mineModule = IR(PRCItems.MINE_MODULE)
+    val storageModule = IR(PRCItems.STORAGE_MODULE_MEDIUM)
+    val gateModule = IR(PRCItems.GATE_MODULE)
 
     // armor
     val ironHelmet = IR(PRCItems.IRON_HELMET)
@@ -46,6 +48,7 @@ object ItemTemplates {
 
     // other
     val coffeeBeanSeed = IR(PRCItems.COFFEE_BEAN_SEED)
+    val potatoSeed = IR(PRCItems.POTATO_SEED)
     val mug = IR(PRCItems.MUG)
     val nutrientCapsule = IR(PRCItems.NUTRITION_CAPSULE)
     val growthCapsule = IR(PRCItems.GROWTH_CAPSULE)
