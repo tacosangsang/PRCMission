@@ -4,13 +4,12 @@ plugins {
 }
 
 group = "kr.eme.prcMission"
-version = "1.0.11"
+version = "1.0.12"
 
 repositories {
-    mavenLocal()
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
-    maven(url="https://jitpack.io")
+    maven("https://jitpack.io")
 }
 
 dependencies {
@@ -39,14 +38,8 @@ tasks.jar {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("maven") {
             from(components["java"])
-            groupId = project.group.toString()      // ✅ group = "kr.eme.semiMission"
-            artifactId = "PRCMission"              // ✅ artifactId
-            version = project.version.toString()    // ✅ version = "1.0.0"
         }
-    }
-    repositories {
-        mavenLocal() // ✅ publishToMavenLocal 실행 시 ~/.m2/repository 로 배포
     }
 }
