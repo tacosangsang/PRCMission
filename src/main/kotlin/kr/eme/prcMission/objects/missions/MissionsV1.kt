@@ -10,17 +10,17 @@ object MissionsV1 {
     val missions: List<Mission> = listOf(
         //Page 1 (1~4)
         Mission(1, MS.m1_title, MS.m1_desc, CP.m1_cond, RP.m1_reward,
-            "§f철 주괴 20개", "홈 모듈"),
+            "§fEP 500", "홈 모듈"),
         Mission(2, MS.m2_title, MS.m2_desc, CP.m2_cond, RP.m2_reward,
-            "§f철 주괴 15개", "빌드형 모듈"),
+            "§f스토리지 모듈(중) 1개", "빌드형 모듈"),
         Mission(3, MS.m3_title, MS.m3_desc, CP.m3_cond, RP.m3_reward,
             "§f프린트 모듈 1개", "빌드형 모듈"),
         Mission(4, MS.m4_title, MS.m4_desc, CP.m4_cond, RP.m4_reward,
-            "§f철 주괴 5개, 알루미늄 주괴 10개", "빌드형 모듈"),
+            "§f철 주괴 15개, 알루미늄 주괴 10개", "빌드형 모듈"),
 
         // Page 2 (5~8)
         Mission(5, MS.m5_title, MS.m5_desc, CP.m5_cond, RP.m5_reward,
-            "§fEP 490", "설치형 모듈"),
+            "§f감자 씨앗 32개", "설치형 모듈"),
         Mission(6, MS.m6_title, MS.m6_desc, CP.m6_cond, RP.m6_reward,
             "§f광산 모듈 1개", "작물/농사"),
         Mission(7, MS.m7_title, MS.m7_desc, CP.m7_cond, RP.m7_reward,
