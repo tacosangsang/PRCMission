@@ -4,22 +4,22 @@ import kr.eme.prcMission.objects.models.Reward
 import kr.eme.prcMission.objects.items.ItemTemplates as IT
 
 object RewardPresetV1 {
-    val m1_reward = Reward(
-        items = listOf(IT.ironIngot.copy(amount = 20))
-    )
+    val m1_reward = Reward(500)
     val m2_reward = Reward(
-        items = listOf(IT.ironIngot.copy(amount = 15))
+        items = listOf(IT.storageModule.copy(amount = 1))
     )
     val m3_reward = Reward(
         items = listOf(IT.printerModule.copy(amount = 1))
     )
     val m4_reward = Reward(
         items = listOf(
-            IT.ironIngot.copy(amount = 5),
+            IT.ironIngot.copy(amount = 15),
             IT.aluminumIngot.copy(amount = 10)
         )
     )
-    val m5_reward = Reward(490)
+    val m5_reward = Reward(
+        items = listOf(IT.potatoSeed.copy(amount = 32))
+    )
     val m6_reward = Reward(
         items = listOf(IT.mineModule.copy(amount = 1))
     )
