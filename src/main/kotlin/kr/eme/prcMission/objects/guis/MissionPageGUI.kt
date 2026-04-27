@@ -277,7 +277,7 @@ class MissionPageGUI(
                 }
                 SoundUtil.click(player)
             }
-            "§f메인으로 이동" -> {
+            "§f이전 페이지로 이동" -> {
                 MissionInitGUI(player).also {
                     it.setFirstGUI(); it.open()
                 }
