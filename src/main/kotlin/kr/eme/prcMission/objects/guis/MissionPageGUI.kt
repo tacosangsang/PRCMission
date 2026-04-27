@@ -145,7 +145,7 @@ class MissionPageGUI(
 
         val homeItem = ItemStackUtil.build(org.bukkit.Material.GLASS_PANE) { meta ->
             meta.setCustomModelData(1)
-            meta.displayName(net.kyori.adventure.text.Component.text("§f메인으로 이동"))
+            meta.displayName(net.kyori.adventure.text.Component.text("§f이전 페이지로 이동"))
         }
         setItem(SLOT_HOME, homeItem)
     }
