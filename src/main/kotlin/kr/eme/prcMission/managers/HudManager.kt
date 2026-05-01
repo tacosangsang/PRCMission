@@ -27,7 +27,7 @@ object HudManager {
     private val COLOR_BLUE   = TextColor.color(0x86, 0xD6, 0xDF)  // #86d6df
     private val COLOR_RED    = TextColor.color(0xE3, 0x38, 0x29)  // #e33829
     private val COLOR_GRAY   = TextColor.color(0xD5, 0xD5, 0xD5)  // #d5d5d5
-    private val COLOR_PURPLE = TextColor.color(0xD6, 0xAA, 0xFF)  // #d6aaff
+    private val COLOR_PURPLE = TextColor.color(0xBD, 0x9C, 0xDA)  // #bd9cda
     private val COLOR_GOLD   = TextColor.color(255, 215, 0)
     private val COLOR_WHITE  = NamedTextColor.WHITE
     private val COLOR_HINT   = TextColor.color(140, 140, 140)
@@ -51,7 +51,7 @@ object HudManager {
     // 버전별 진행도 색상
     private fun progressColor(version: MissionVersion): TextColor = when (version) {
         MissionVersion.V1 -> COLOR_BLUE    // #86d6df
-        MissionVersion.V2 -> COLOR_PURPLE  // #d6aaff
+        MissionVersion.V2 -> COLOR_PURPLE  // #bd9cda
     }
 
     fun start() {
@@ -147,7 +147,7 @@ object HudManager {
         if (cond.goal != null) {
             val goal = cond.goal
             val cur = progress.progressCount.coerceAtMost(goal)
-            content += Component.text("진행도 ", COLOR_GRAY)
+            content += Component.text("진행도 ", progressColor(version))
                 .append(Component.text("$cur / $goal", progressColor(version)))
         } else {
             cond.values.forEach { v ->
@@ -192,7 +192,9 @@ object HudManager {
         if (parts.isEmpty()) return emptyList()
 
         val result = mutableListOf<Component>()
-        result += Component.text(rewardIcon(version), COLOR_GOLD)
+        // 유니코드 보상 아이콘은 폰트 텍스처 자체에 색이 박혀 있으므로
+        // gold/특정 색을 입히면 텍스처가 tint되어 원래 색이 깨짐 → WHITE로 무필터 표시
+        result += Component.text(rewardIcon(version), COLOR_WHITE)
         parts.forEach { part ->
             result += Component.text("- ", COLOR_GRAY)
                 .append(Component.text(part, COLOR_GOLD))
