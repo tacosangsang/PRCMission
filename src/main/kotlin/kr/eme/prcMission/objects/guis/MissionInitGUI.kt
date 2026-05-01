@@ -45,7 +45,7 @@ class MissionInitGUI(player: Player) : GUI(player, "§f\\u340F\\u3435", 6) {
         rightSlots.forEach { setItem(it, v2Item) }
 
         val homeItem = ItemStackUtil.build(Material.GLASS_PANE) { meta ->
-            meta.setDisplayName("§f메인으로 이동")
+            meta.setDisplayName("§f이전 페이지로 이동")
             meta.setCustomModelData(1)
         }
         setItem(49, homeItem)
@@ -78,7 +78,7 @@ class MissionInitGUI(player: Player) : GUI(player, "§f\\u340F\\u3435", 6) {
                 //    SoundUtil.error(player)
                 //}
             }
-            "§f메인으로 이동" -> {
+            "§f이전 페이지로 이동" -> {
                 val initShopGUI = InitShopGUI(player)
                 initShopGUI.setFirstGUI()
                 GUIManager.setGUI(player.uniqueId, initShopGUI)

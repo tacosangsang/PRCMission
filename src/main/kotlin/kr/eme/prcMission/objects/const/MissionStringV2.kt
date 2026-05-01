@@ -22,7 +22,7 @@ object MissionStringV2 {
     const val m7_title = "출입모듈 설치"
     const val m7_desc = "출입모듈을 원하는 곳에 증설하세요."
 
-    const val m8_title = "탑 탐사"
+    const val m8_title = "USB-04 획득"
     const val m8_desc = "뼈의 길을 따라 올라간 탑에서 탐사를 진행하세요."
 
     const val m9_title = "USB 내용 확인"
