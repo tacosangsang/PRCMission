@@ -3,6 +3,7 @@ package kr.eme.prcMission
 import kr.eme.prcMission.commands.MissionCommand
 import kr.eme.prcMission.listeners.GUIListener
 import kr.eme.prcMission.listeners.MissionProgressListener
+import kr.eme.prcMission.listeners.MoneyChangedListener
 import kr.eme.prcMission.listeners.PlayerConnectionListener
 import kr.eme.prcMission.managers.HudManager
 import kr.eme.prcMission.managers.MissionStateManager
@@ -32,5 +33,6 @@ class PRCMission : JavaPlugin() {
         server.pluginManager.registerEvents(GUIListener, this)
         server.pluginManager.registerEvents(MissionProgressListener, this)
         server.pluginManager.registerEvents(PlayerConnectionListener, this)
+        server.pluginManager.registerEvents(MoneyChangedListener, this)
     }
 }
