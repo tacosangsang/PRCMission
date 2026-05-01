@@ -1,7 +1,10 @@
 name: PRCMission
 main: kr.eme.prcMission.PRCMission
-version: 1.0
+version: 1.0.14
 api-version: 1.21
+softdepend:
+  - PRCMoney
+  - PRCShop
 commands:
   mission:
     usage: /mission or /미션
