@@ -28,10 +28,10 @@ object MissionStringV1 {
     const val m9_title = "분쇄기/용광로 설치"
     const val m9_desc = "분쇄기 모듈과 용광로 모듈을 설치하세요."
 
-    const val m10_title = "모듈 아이템화"
-    const val m10_desc = "스패너를 사용하여 설치형 모듈을 아이템화 하세요."
+    const val m10_title = "모듈 해체"
+    const val m10_desc = "스패너를 사용하여 설치형 모듈을 해체하세요."
 
-    const val m11_title = "분쇄기 사용"
+    const val m11_title = "철 파우더 제작"
     const val m11_desc = "철 광물을 분쇄하세요."
 
     const val m12_title = "철 주괴 제작"

@@ -19,7 +19,7 @@ object MissionsV2 {
         Mission(5, MS.m5_title, MS.m5_desc, CP.m5_cond, RP.m5_reward,
             "§fCu-Au 합금 주괴 10개", "설치형 모듈"),
         Mission(6, MS.m6_title, MS.m6_desc, CP.m6_cond, RP.m6_reward,
-            "§fEP 7000", "설치형 모듈"),
+            "§f출입 모듈 1개", "설치형 모듈"),
         Mission(7, MS.m7_title, MS.m7_desc, CP.m7_cond, RP.m7_reward,
             "§f커피 씨앗 32개, 커피잔 16개, 성장 캡슐 16개, 영양 캡슐 16개, 합금 섬유 우주복(풀세트)", "빌드형 모듈"),
         Mission(8, MS.m8_title, MS.m8_desc, CP.m8_cond, RP.m8_reward,
