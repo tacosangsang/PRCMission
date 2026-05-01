@@ -4,6 +4,7 @@ object MissionTypes {
     const val DEVICE_INTERACTION = "DEVICE_INTERACTION"
     const val MODULE_PLACE = "MODULE_PLACE"
     const val PLAYER_PROGRESS = "PLAYER_PROGRESS"
+    const val PLAYER_PROGRESS_KILL = "PLAYER_PROGRESS_KILL"
     const val TRADE = "TRADE"
     const val UPGRADE = "UPGRADE"
     const val PLAYER_EP = "PLAYER_EP"
