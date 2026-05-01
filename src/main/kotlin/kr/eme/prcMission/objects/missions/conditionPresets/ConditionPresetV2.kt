@@ -15,7 +15,7 @@ object ConditionPresetV2 {
     val m8_cond = C(MT.PLAYER_PROGRESS, MTA.TOWER, listOf(1))
     val m9_cond = C(MT.DEVICE_INTERACTION, MTA.HOME_MODULE, listOf(1))
     val m10_cond = C(MT.CRAFTING, MTA.PRINTER_MODULE, listOf(1))
-    val m11_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 300)
+    val m11_cond = C(MT.PLAYER_PROGRESS_KILL, MTA.MINE_MODULE, listOf(1), goal = 300)
     val m12_cond = C(MT.MODULE_PLACE, MTA.STORAGE_MODULE, listOf(1))
     val m13_cond = C(MT.PLAYER_EP, MTA.EP, listOf(1))
     val m14_cond = C(MT.PLAYER_PROGRESS, MTA.MINE_MODULE, listOf(1), goal = 1500)
