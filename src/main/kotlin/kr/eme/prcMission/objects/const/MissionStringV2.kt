@@ -32,7 +32,7 @@ object MissionStringV2 {
     const val m10_desc = "프린트 모듈에서 나이프를 제작하세요."
 
     const val m11_title = "광산 몬스터 처치"
-    const val m11_desc = "광산에서 몬스터 300마리를 처치하세요."
+    const val m11_desc = "광산에서 몬스터 40마리를 처치하세요."
 
     const val m12_title = "스토리지 모듈(대) 설치"
     const val m12_desc = "스토리지 모듈 (대)를 원하는 곳에 증설하세요."
@@ -44,7 +44,7 @@ object MissionStringV2 {
     const val m14_desc = "광산 모듈에서 광물을 총 1500개 채굴하세요."
 
     const val m15_title = "광산 몬스터 처치-2"
-    const val m15_desc = "광산에서 몬스터 500마리를 처치하세요."
+    const val m15_desc = "광산에서 몬스터 70마리를 처치하세요."
 
     const val m16_title = "농사 모듈(대) 설치"
     const val m16_desc = "농사 모듈 (대)를 원하는 곳에 증설하세요."
